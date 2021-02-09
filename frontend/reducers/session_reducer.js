@@ -10,4 +10,4 @@ const sessionReducer = (state ={}, action) => {
     }
 }
 
-export default PostsReducer;
+export default sessionReducer;

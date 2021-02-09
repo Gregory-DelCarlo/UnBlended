@@ -9,15 +9,16 @@ class Api::SessionsController < ApplicationController
             login(@user)
             render 'api/users/show'
         else
-            render json: @user.errors.full_messages
+            render json: @user.errors.full_messages, status: 401
         end
     end
 
     def destroy
         if current_user
-            render: json: {}
+            logout
+            render json: {}
         else
-            render: json: ["no current user"], status: 404
+            render json: { message: "no current user" }, status: 404
         end
     end
 end
