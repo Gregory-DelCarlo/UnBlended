@@ -1,6 +1,6 @@
 import { 
     login, logout, signup 
-} from '../util/session_api_util';
+} from '../../util/session_api_util';
 
 
 //------------------ACTION CONSTANTS-------------------
