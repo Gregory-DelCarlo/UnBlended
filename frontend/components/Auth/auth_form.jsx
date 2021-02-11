@@ -4,9 +4,9 @@ export default class AuthForm extends React.Component {
 
     constructor(props) {
         super(props);
-        const {formType, Submit} = this.props;
+        const {formType, submit} = this.props;
         this.formType = formType;
-        this.submit = Submit;
+        this.submit = submit;
         if (this.formType === 'Sign Up') {
             this.state = {
                 username: '',
@@ -21,6 +21,11 @@ export default class AuthForm extends React.Component {
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        // this.loginDemo = this.loginDemo.bind(this);
+    }
+
+    componentWillUnmount() {
+        this.props.clearErrors()
     }
 
     handleSubmit(e) {
@@ -51,6 +56,32 @@ export default class AuthForm extends React.Component {
         });
     }
 
+    renderErrors() {
+        return(
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={i}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
+
+    // loginDemo() {
+    //     this.formType === 'Sign Up' ? 
+    //         delete this.state.location : undefined;
+
+    //     this.setState({
+    //         username: "Chad",
+    //         password: "123456"
+    //     })
+
+    //     debugger
+    //     this.submit(this.state)
+    //         .then( () => this.props.history.push('/login'))
+    // }
+
     render() {
         return(
             <div className='auth-form'>
@@ -76,9 +107,10 @@ export default class AuthForm extends React.Component {
                             />
                         </label> : undefined
                     }<br />
-                    { this.props.errors ? <div>{this.props.errors}</div> : undefined }
+                    {this.renderErrors()}
                     <button type="submit" >{this.formType}</button>
                 </form>
+                {/* <button onClick={this.loginDemo} >Demo a User</button> */}
             </div>
         )
     }

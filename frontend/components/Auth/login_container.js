@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AuthForm from './auth_form';
-import {loginUser} from '../../actions/session/session_actions';
+import {loginUser, clearErrors} from '../../actions/session/session_actions';
 
 const mapStateToProps = state => ({
     formType: 'Log In',
@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    Submit: (formUser) => dispatch(loginUser(formUser))
+    submit: (formUser) => dispatch(loginUser(formUser)),
+    clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthForm);

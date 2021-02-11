@@ -10,8 +10,8 @@ const App = () => (
     <>
     <Route path="/" component={HeaderContainer} />
     <div>hello boys!</div>
-    <AuthRoute path='/login' component={SignInContainer} />
-    <AuthRoute path='/signup' component={SignUpContainer} />
+    <AuthRoute exact path='/login' component={SignInContainer} />
+    <AuthRoute exact path='/signup' component={SignUpContainer} />
     </>
 );
 

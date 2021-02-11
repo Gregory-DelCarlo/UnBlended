@@ -9,9 +9,22 @@ import {
     createNewUser, loginUser, logoutUser
 } from './actions/session/session_actions';
 
+let preLoadedState = {}
+
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
-    const store = configureStore();
+
+    if (window.currentUser) {
+        preLoadedState = {
+            entities: {
+                users: { [window.currentUser.id]: window.currentUser }
+            },
+            session: { id: window.currentUser.id }
+        };
+    };
+
+    const store = configureStore(preLoadedState);
+    delete window.currentUser;
     ReactDOM.render(<Root store={store} />, root);
 
 
@@ -19,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.login = login;
     // window.logout = logout;
     // window.signup = signup;
-    window.login = loginUser;
-    window.logout = logoutUser;
-    window.signup = createNewUser;
+    // window.login = loginUser;
+    // window.logout = logoutUser;
+    // window.signup = createNewUser;
 });
