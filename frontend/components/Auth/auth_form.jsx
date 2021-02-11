@@ -21,7 +21,7 @@ export default class AuthForm extends React.Component {
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.loginDemo = this.loginDemo.bind(this);
+        this.loginDemo = this.loginDemo.bind(this);
     }
 
     componentWillUnmount() {
@@ -68,19 +68,24 @@ export default class AuthForm extends React.Component {
         );
     }
 
-    // loginDemo() {
-    //     this.formType === 'Sign Up' ? 
-    //         delete this.state.location : undefined;
+    loginDemo(e) {
+        e.preventDefault()
+        e.stopPropagation()
+        // this.formType === 'Sign Up' ? 
+        //     delete this.state.location : undefined;
 
-    //     this.setState({
-    //         username: "Chad",
-    //         password: "123456"
-    //     })
+        const demoUser = ({
+            username: "Chad",
+            password: "supersecretpassword!"
+        })
 
-    //     debugger
-    //     this.submit(this.state)
-    //         .then( () => this.props.history.push('/login'))
-    // }
+        // debugger
+        this.formType === 'Sign Up' ? 
+            this.props.loginUser(demoUser)
+                .then( () => this.props.history.push('/login'))
+        : this.submit(demoUser)
+            .then( () => this.props.history.push("/login"));
+    }
 
     render() {
         return(
@@ -110,7 +115,7 @@ export default class AuthForm extends React.Component {
                     {this.renderErrors()}
                     <button type="submit" >{this.formType}</button>
                 </form>
-                {/* <button onClick={this.loginDemo} >Demo a User</button> */}
+                <button onClick={this.loginDemo} >Demo a User</button>
             </div>
         )
     }
