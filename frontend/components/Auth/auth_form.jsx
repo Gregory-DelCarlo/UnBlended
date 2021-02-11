@@ -60,7 +60,7 @@ export default class AuthForm extends React.Component {
         return(
             <ul>
                 {this.props.errors.map((error, i) => (
-                    <li key={i}>
+                    <li className='error-message' key={i}>
                         {error}
                     </li>
                 ))}
@@ -90,22 +90,22 @@ export default class AuthForm extends React.Component {
     render() {
         return(
             <div className='auth-form'>
-                <h2>{this.formType}</h2>
+                <h2 id='form-header'>{this.formType}</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Username:
+                    <label className='form-field'>Username:
                         <input type='text'
                             value={this.state.username}
                             onChange={this.update("username")}
                         />
                     </label><br />
-                    <label>Password:
+                    <label className='form-field'>Password:
                         <input type='password'
                             value={this.state.password}
                             onChange={this.update("password")}
                         />
                     </label><br />
                     {this.formType === 'Sign Up' ?
-                        <label>Location:
+                        <label className='form-field'>Location:
                             <input type='text'
                                 value={this.state.location}
                                 onChange={this.update("location")}
@@ -113,9 +113,9 @@ export default class AuthForm extends React.Component {
                         </label> : undefined
                     }<br />
                     {this.renderErrors()}
-                    <button type="submit" >{this.formType}</button>
+                    <button className='form-button' type="submit" >{this.formType}</button>
                 </form>
-                <button onClick={this.loginDemo} >Demo a User</button>
+                <button className='form-button' onClick={this.loginDemo} >Demo a User</button>
             </div>
         )
     }

@@ -1,0 +1,36 @@
+.header{
+    // display: grid;
+    // flex-direction: row;
+    // justify-content: space-between;
+    // grid-template-columns: auto auto;
+    // grid-template-rows: 75px 500px;
+    // padding: 20px;
+    // background-image: url('https://www.thefifthoc.com/wp-content/uploads/2017/09/Shot-of-Whiskey-768x432.jpg');
+    background-image: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), image-url('header/header-bg.jpg');
+    background-position: center top;
+    background-size: cover;
+    text-align: center;
+}
+
+.btn-auth {
+    margin-right: 15px;
+    padding: 15px 20px;
+    font-size: 1em;
+    font-family: inherit;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.auth-bar {
+    padding: 20px;
+    // box-sizing: border-box;
+}
+
+#auth-float {
+    float: right;
+}
+
+.clearfix {
+    clear: both;
+}
