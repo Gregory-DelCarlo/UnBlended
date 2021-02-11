@@ -31,6 +31,48 @@
     float: right;
 }
 
-.clearfix {
-    clear: both;
+#header-grid {
+    display: grid;
+    height: 700px;
+    grid-gap: .9px;
+    grid-template-columns: fill fill;
+    // bottom: 350px;
 }
+
+#header-grid-logo {
+    grid-column: 1;
+    vertical-align: middle;
+    // float: none!important;
+}
+
+#masthead-logo {
+    text-align: middle;
+    width: 100%;
+}
+
+#header-grid .short-line {
+    margin: 20px auto;
+}
+
+#header-grid h2 {
+    color: #fff;
+    margin: 0 15px 0 15px;
+}
+
+#header-grid-masthead {
+    grid-column: 2;
+    vertical-align: middle;
+    // float: none!important;
+}
+
+#masthead-img {
+    display: inline-flex;
+    height: 80%;
+}
+
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

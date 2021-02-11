@@ -1,8 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import mastheadImg from '../../../app/assets/images/header/masthead-img-main.png';
-// import img from '../../../app/assets/images/header/masthead-img-main'
-// import img from 'app/assets/images/header/masthead-img-main.png';
+
 
 export default ({ currentUser, logout}) => {
     const loginState = currentUser ? (
@@ -23,11 +21,17 @@ export default ({ currentUser, logout}) => {
             <div className='auth-bar clearfix'>
                 {loginState}
             </div>
-            <div>
-                <h1 className="logo">UNBLENDED</h1>
-                <div id='header-line'></div>
-                < h2>Discover and share your favorite whiskey</h2>
-                {/* <img src={img} alt="Unblended masthead"/> */}
+            <div id="header-grid">
+                <div id="header-grid-logo">
+                    <div id="masthead-logo">
+                        <img src={window.logo} alt="Unblended logo standin"/>
+                    </div>
+                    <div className='short-line'></div>
+                    < h2>Discover and share your favorite whiskey</h2>
+                </div>
+                <div id="header-grid-masthead">
+                    <img id="masthead-img" src={window.mastheadImg} alt="Unblended masthead"/>
+                </div>
             </div>
         </header>
     );
