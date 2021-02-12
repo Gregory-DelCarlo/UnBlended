@@ -24,7 +24,7 @@ export default ({ currentUser, logout}) => {
             <div id="header-grid">
                 <div id="header-grid-logo">
                     <div id="masthead-logo">
-                        <img src={window.logo} alt="Unblended logo standin"/>
+                        <img src={window.logo} alt="Unblended logo"/>
                     </div>
                     <div className='short-line'></div>
                     < h2>Discover and share your favorite whiskey</h2>

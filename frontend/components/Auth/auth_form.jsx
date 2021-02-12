@@ -65,7 +65,7 @@ export default class AuthForm extends React.Component {
             <ul className='errors-list'>
                 {this.props.errors.map((error, i) => (
                     <>
-                    <li className='error-message' key={i}>
+                    <li className='error-message' key={i.toString()}>
                         {error}
                     </li><br/>
                     </>
@@ -108,37 +108,45 @@ export default class AuthForm extends React.Component {
             .then( () => this.props.history.push("/login"));
     }
 
+    renderFormContent() {
+        return (
+            <>
+                <div className='field-content'><AiOutlineUser className="auth-icon"/>
+                    <input type='text'
+                        value={this.state.username}
+                        onChange={this.update("username")}
+                        placeholder='Username'
+                    />
+                </div><br/>
+                <div className='field-content'><RiLockPasswordFill className="auth-icon"/>
+                    <input type='password'
+                        value={this.state.password}
+                        onChange={this.update("password")}
+                        placeholder='Password'
+                    />
+                </div><br />
+                {this.formType === 'Sign Up' ?
+                    <div className='field-content location'><FaGlobeAmericas className="auth-icon"/>
+                        <input type='text'
+                            value={this.state.location}
+                            onChange={this.update("location")}
+                            placeholder='Location'
+                        />
+                    </div> : undefined
+                }<br />
+            </>
+        )
+    }
+
     render() {
         return(
             <div className="auth-page">
                 <div className='auth-form'>
                     <h2 id='home-link'><Link to='/' className='link'>UNBLENDED</Link></h2>
                     <form onSubmit={this.handleSubmit}>
-                        <div className='field-content'><AiOutlineUser className="auth-icon"/>
-                            <input type='text'
-                                value={this.state.username}
-                                onChange={this.update("username")}
-                                placeholder='Username'
-                            />
-                        </div><br/>
-                        <div className='field-content'><RiLockPasswordFill className="auth-icon"/>
-                            <input type='password'
-                                value={this.state.password}
-                                onChange={this.update("password")}
-                                placeholder='Password'
-                            />
-                        </div><br />
-                        {this.formType === 'Sign Up' ?
-                            <div className='field-content location'><FaGlobeAmericas className="auth-icon"/>
-                                <input type='text'
-                                    value={this.state.location}
-                                    onChange={this.update("location")}
-                                    placeholder='Location'
-                                />
-                            </div> : undefined
-                        }<br />
+                        {this.renderFormContent()}
                         {this.renderErrors()}
-                        <button className='form-button' type="submit" >{this.formType}</button>
+                        <button className='form-button submit' type="submit" >{this.formType}</button>
                     </form>
                     <button className='form-button' onClick={this.loginDemo} >Demo a User</button>
                     <div className='long-grey-line' />
