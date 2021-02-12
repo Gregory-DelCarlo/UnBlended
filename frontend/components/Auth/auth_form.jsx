@@ -64,14 +64,13 @@ export default class AuthForm extends React.Component {
         return(
             <ul className='errors-list'>
                 {this.props.errors.map((error, i) => (
-                    <>
-                    <li className='error-message' key={i.toString()}>
-                        {error}
-                    </li><br/>
-                    </>
+                    <li className='error-message' key={i}>
+                        {error}<br/>
+                    </li>
                 ))}
             </ul>
         );
+        
     }
 
     redirect() {
@@ -145,7 +144,9 @@ export default class AuthForm extends React.Component {
                     <h2 id='home-link'><Link to='/' className='link'>UNBLENDED</Link></h2>
                     <form onSubmit={this.handleSubmit}>
                         {this.renderFormContent()}
-                        {this.renderErrors()}
+                        <div className='errors-container'>
+                            {this.renderErrors()}
+                        </div>
                         <button className='form-button submit' type="submit" >{this.formType}</button>
                     </form>
                     <button className='form-button' onClick={this.loginDemo} >Demo a User</button>

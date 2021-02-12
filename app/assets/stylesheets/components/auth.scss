@@ -60,6 +60,7 @@
 
 .form-button {
     border: 0;
+    top: 5px;
     margin: 0 auto 5px;
     width: 100%;
     max-width: 300px;
@@ -86,10 +87,22 @@
     border-right: 1px solid grey;
 }
 
+.errors-list {
+    margin: -10px 0 10px 25px;
+}
+
+.errors-container {
+    display: block;
+    width: 250px;
+    height: 50px;
+    border: 5px solid transparent;
+}
+
 .error-message {
-    margin-top: -10px;
-    margin-bottom: 10px;
+    
     color: red;
+    max-width: 250px;
+    text-align: center;
 }
 
 .form-footer .link {
