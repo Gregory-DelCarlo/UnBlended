@@ -26,16 +26,7 @@
 
 }
 
-.button {
-    display: inline-block;
-    font-weight: 600;
-    cursor: pointer;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 4px;
-}
-
-.navlink {
+.button, .navlink, .link{
     display: inline-block;
     font-weight: 600;
     cursor: pointer;
@@ -55,4 +46,10 @@ h2 {
     line-height: 1em;
     font-size: 2.5em;
     font-weight: 700;
+}
+
+.long-grey-line {
+    background-color: lightgrey;
+    height: 1px;
+    margin: 30px 0px;
 }

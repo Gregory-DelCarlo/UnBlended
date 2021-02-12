@@ -15,10 +15,84 @@
 
 .auth-form {
     max-width: 400px;
+    min-width: 300px;
     left: 50%;
-    top: 50%;
-    margin: 0 auto 0 -200px;
+    top: 25%; 
+    margin: 0 auto 0 -150px;
     position: absolute;
     background-color: #fff;
     padding: 24px 16px;
 }
+
+#home-link {
+   margin-top: 10px; 
+   margin-bottom: 10px;
+   padding-bottom: 15px;
+   
+}
+
+.link {
+    color: grey;
+}
+
+
+
+.field-content {
+    border: 1px solid grey;
+    border-radius: 4px;
+    padding: 6px 8px 6px 6px;
+    text-align: center;
+}
+
+.field-content input {
+    border: 0;
+    padding: 2px 0 0 6px;
+    font-size: 1em;
+    border-radius: 0;
+    text-decoration: none;
+}
+
+.field-content input:focus {
+    outline: none;
+}
+
+.form-button {
+    border: 0;
+    margin: 0 auto 5px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    display: block;
+    padding: 12px 0;
+    color: #fff;
+    background-color: #fc0;
+}
+
+.form-footer {
+    margin-top: 15px;
+    font-size: 1em;
+}
+
+.auth-icon {
+    padding-right: 10px;
+    margin-left: -40px;
+    border-right: 1px solid grey;
+}
+
+.error-message {
+    margin-top: -20px;
+    margin-bottom: 10px;
+    color: red;
+}
+
+.form-footer .link {
+    color: orange;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
