@@ -17,7 +17,7 @@
     max-width: 400px;
     min-width: 300px;
     left: 50%;
-    top: 25%; 
+    top: 25%;
     margin: 0 auto 0 -150px;
     position: absolute;
     background-color: #fff;
@@ -26,7 +26,7 @@
 
 #home-link {
    margin-top: 10px; 
-   margin-bottom: 10px;
+   margin-bottom: -6px;
    padding-bottom: 15px;
    
 }
@@ -87,12 +87,18 @@
     border-right: 1px solid grey;
 }
 
-.errors-list {
-    margin: -10px 0 10px 25px;
-}
-
 .errors-container {
     display: block;
+    width: 250px;
+    height: 50px;
+    border: 5px solid transparent;
+    background-color: #E25858;
+}
+
+.errors-placeholder {
+    display: block;
+    margin-bottom: 13px;
+    margin-left: 13px;
     width: 250px;
     height: 50px;
     border: 5px solid transparent;
@@ -100,7 +106,7 @@
 
 .error-message {
     
-    color: red;
+    color: white;
     max-width: 250px;
     text-align: center;
 }

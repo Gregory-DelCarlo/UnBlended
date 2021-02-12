@@ -61,15 +61,20 @@ export default class AuthForm extends React.Component {
     }
 
     renderErrors() {
-        return(
-            <ul className='errors-list'>
-                {this.props.errors.map((error, i) => (
-                    <li className='error-message' key={i}>
-                        {error}<br/>
-                    </li>
-                ))}
-            </ul>
-        );
+        const errors = this.props.errors;
+        if(errors.length !== 0){
+            return(
+                <div className='errors-container'>
+                    <ul className='errors-list'>
+                        {errors.map((error, i) => (
+                            <li className='error-message' key={i}>
+                                {error}<br/>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            );
+        }
         
     }
 
@@ -142,11 +147,11 @@ export default class AuthForm extends React.Component {
             <div className="auth-page">
                 <div className='auth-form'>
                     <h2 id='home-link'><Link to='/' className='link'>UNBLENDED</Link></h2>
+                    <div className='errors-placeholder'>
+                        {this.renderErrors()}
+                    </div>
                     <form onSubmit={this.handleSubmit}>
                         {this.renderFormContent()}
-                        <div className='errors-container'>
-                            {this.renderErrors()}
-                        </div>
                         <button className='form-button submit' type="submit" >{this.formType}</button>
                     </form>
                     <button className='form-button' onClick={this.loginDemo} >Demo a User</button>
