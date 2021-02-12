@@ -36,7 +36,7 @@
 }
 
 .location {
-    padding-bottom: 3px;
+    padding-bottom: 30px;
 }
 
 .field-content {
@@ -70,6 +70,11 @@
     background-color: #fc0;
 }
 
+.form-button:hover {
+    background-color: #f4b800;
+    transition: .5s;
+}
+
 .form-footer {
     margin-top: 15px;
     font-size: 1em;
@@ -88,8 +93,13 @@
 }
 
 .form-footer .link {
-    color: orange;
+    color: #c60;
     text-decoration: none;
+}
+
+.form-footer .link:hover {
+    color: #f93;
+    transition: .5s;
 }
 
 
