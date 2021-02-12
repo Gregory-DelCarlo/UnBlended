@@ -64,9 +64,11 @@ export default class AuthForm extends React.Component {
         return(
             <ul className='errors-list'>
                 {this.props.errors.map((error, i) => (
+                    <>
                     <li className='error-message' key={i}>
                         {error}
-                    </li>
+                    </li><br/>
+                    </>
                 ))}
             </ul>
         );
@@ -127,7 +129,7 @@ export default class AuthForm extends React.Component {
                             />
                         </div><br />
                         {this.formType === 'Sign Up' ?
-                            <div className='field-content'><FaGlobeAmericas className="auth-icon"/>
+                            <div className='field-content location'><FaGlobeAmericas className="auth-icon"/>
                                 <input type='text'
                                     value={this.state.location}
                                     onChange={this.update("location")}

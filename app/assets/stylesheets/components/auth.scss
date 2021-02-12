@@ -35,7 +35,9 @@
     color: grey;
 }
 
-
+.location {
+    padding-bottom: 3px;
+}
 
 .field-content {
     border: 1px solid grey;
@@ -80,7 +82,7 @@
 }
 
 .error-message {
-    margin-top: -20px;
+    margin-top: -10px;
     margin-bottom: 10px;
     color: red;
 }
