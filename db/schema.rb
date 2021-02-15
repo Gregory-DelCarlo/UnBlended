@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_09_000519) do
+ActiveRecord::Schema.define(version: 2021_02_15_204709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "distilleries", force: :cascade do |t|
+    t.string "name", null: false
+    t.float "lat", null: false
+    t.float "long", null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "established", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.index ["name"], name: "index_distilleries_on_name", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
@@ -25,6 +38,19 @@ ActiveRecord::Schema.define(version: 2021_02_09_000519) do
     t.index ["password_digest"], name: "index_users_on_password_digest"
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  create_table "whiskeys", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "type", null: false
+    t.float "abv", null: false
+    t.integer "proof", null: false
+    t.text "description"
+    t.integer "distillery_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["distillery_id"], name: "index_whiskeys_on_distillery_id"
+    t.index ["name"], name: "index_whiskeys_on_name", unique: true
   end
 
 end
