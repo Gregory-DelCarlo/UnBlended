@@ -47,17 +47,17 @@ export const getDrink = drinkId => dispatch => (
         .then(drink => dispatch(receiveDrink(drink)))
 );
 
-export const createDrink = drink => dispatch => (
+export const newDrink = drink => dispatch => (
     createDrink(drink)
         .then(drink => dispatch(receiveDrink(drink)))
 );
 
-export const updateDrink = drink => dispatch => (
+export const editDrink = drink => dispatch => (
     updateDrink(drink)
         .then(drink => dispatch(receiveDrink(drink)))
 );
 
-export const deleteDrink = drinkId => dispatch => (
+export const destroyDrink = drinkId => dispatch => (
     deleteDrink(drinkId) 
         .then(drink => dispatch(removeDrink(drink.id)))
 )

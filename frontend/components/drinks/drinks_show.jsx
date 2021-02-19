@@ -29,6 +29,8 @@ export default class DrinksShow extends React.Component {
                 </div>
                 <h2>DESCRIPTION</h2>
                 <div>{drink.description}</div>
+                <br />
+                <button className='button'>Delete Drink</button>
             </div>
         )
     }
