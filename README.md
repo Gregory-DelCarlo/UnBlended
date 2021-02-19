@@ -2,7 +2,7 @@
     Unblended is a simple clone of the popular beer-based social network Untappd. I built UnBlended with a focus on whiskey rather than beer as it is a personal favorite of mine. This is my first full stack project using a multi-language stack, and represents the majority of what I learned during my tiem at App Academy.
 ## [UnBlended Live!](https://unblended.herokuapp.com/#/)
 
-![Unblended Header](app/assets/images/ReadMe/header_snippet.png)
+![Unblended Header](https://github.com/Gregory-DelCarlo/UnBlended/blob/main/app/assets/images/ReadMe%20/header_snippet.PNG)
 ## What's In the Stack?
     This Project was completed using a Ruby on Rails backend and a ReactJS frontend. The backend works with a PSQL hosted database and interacts with it using active storage. In the frontend Node is used to package mainly Redux as a state manager used with ReactJS to handle the user interface.
 
