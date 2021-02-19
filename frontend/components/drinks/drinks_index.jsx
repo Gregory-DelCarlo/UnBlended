@@ -29,6 +29,7 @@ export default class DrinksIndex extends React.Component {
                         {drinks}
                     </ul>
                 </div>
+                <Link to='/drinks/new' >Create a Drink! </Link>
             </>
         )
     }

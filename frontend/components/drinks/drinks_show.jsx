@@ -30,7 +30,8 @@ export default class DrinksShow extends React.Component {
                 <h2>DESCRIPTION</h2>
                 <div>{drink.description}</div>
                 <br />
-                <button className='button'>Delete Drink</button>
+                <Link to={`/drinks/${drink.id}/edit`} >Edit Drink</Link>
+                <button className='button' onClick={this.props.deleteDrink}>Delete Drink</button>
             </div>
         )
     }

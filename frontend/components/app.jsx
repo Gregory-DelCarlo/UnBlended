@@ -6,6 +6,8 @@ import SignUpContainer from './auth/signup_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import DrinksIndexContainer from './drinks/drinks_index_container';
 import DrinksShowContainer from './drinks/drinks_show_container';
+import CreateDrinkContainer from './drinks/create_drink_container';
+import EditDrinkContainer from './drinks/edit_drink container';
 
 
 const App = () => (
@@ -14,6 +16,8 @@ const App = () => (
         <Route exact path="/" component={HeaderContainer} />
         <AuthRoute path='/login' component={SignInContainer} />
         <AuthRoute path='/signup' component={SignUpContainer} />
+        <ProtectedRoute exact path='/drinks/new' component={CreateDrinkContainer} />
+        <ProtectedRoute exact path='/drinks/:drinkId/edit' component={EditDrinkContainer} />
         <ProtectedRoute exact path='/drinks' component={DrinksIndexContainer} />
         <ProtectedRoute exact path='/drinks/:drinkId' component={DrinksShowContainer} />
         <Route render={() => <Redirect to='/drinks'/>} />
