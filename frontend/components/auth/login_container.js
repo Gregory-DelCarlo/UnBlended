@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AuthForm from './auth_form';
-import {loginUser, clearErrors} from '../../actions/session/session_actions';
+import {loginUser, clearErrors} from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
     formType: 'Log In',

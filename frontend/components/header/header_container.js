@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Header from './header';
 
-import { logoutUser } from '../../actions/session/session_actions';
+import { logoutUser } from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
 

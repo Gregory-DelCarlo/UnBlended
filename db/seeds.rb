@@ -37,9 +37,9 @@ users = [
     },
     { 
         id: 5,
-        username: "Chad",
+        username: "Demo User",
         password: "supersecretpassword!",
-        location: "Your Moms"
+        location: "The Cloud"
     }
 ]
 
@@ -195,6 +195,7 @@ distilleries = [
         established: '2009'
     },
     {
+        id: 16,
         name: 'Charbay Distillery',
         lat: 39.111733148804426,
         long: -123.1964912925734,
@@ -204,6 +205,7 @@ distilleries = [
         established: '1983'
     },
     {
+        id: 17,
         name: "Virginia Distillery Co.",
         lat: 37.782346041358466, 
         long: -78.86297830185002,
@@ -213,6 +215,7 @@ distilleries = [
         established: '2011'
     },
     {
+        id: 18,
         name: "Dad's Hat",
         lat: 40.10408678457317,
         long: -74.85170700601226,
@@ -222,6 +225,7 @@ distilleries = [
         established: '2011'
     },
     {
+        id: 19,
         name: 'Leopold Bros',
         lat: 39.79293473581162,
         long: -104.86184111715247,
@@ -231,6 +235,7 @@ distilleries = [
         established: '1999'
     },
     {
+        id: 20,
         name: 'Smooth Ambler',
         lat: 37.863910729243074,
         long: -80.40026618835557,
@@ -239,7 +244,8 @@ distilleries = [
         description: 'In 2009, Smooth Ambler Spirits was founded with the simple goal of producing the best whiskey by using the best of everything available to us. West Virginia is a fine place to make whiskey, providing excellent local grain and water, the perfect cadence of seasons for mellow aging, and hardworking people who know how to get things done with skill and pride. A craft distiller, respected curator of sourced whiskey, and down-to-earth innovator, Smooth Ambler offers a family of delicious bourbons and ryes including whiskeys that are homemade, sourced, and a blend of both. Committed to shooting straight with our customers, ourselves, and our industry, we celebrate the honesty and transparency that are integral parts of always trying to do things right.',
         established: '2009'
     },
-    { #id = 25
+    {
+        id: 21,
         name: 'Whistle Pig',
         lat: 43.912225889018806,
         long: -73.27608688570652,

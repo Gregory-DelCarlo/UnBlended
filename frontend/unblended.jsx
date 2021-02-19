@@ -5,9 +5,12 @@ import configureStore from './store/store';
 // import { 
 //     login, logout, signup 
 // } from './util/session_api_util'
-import {
-    createNewUser, loginUser, logoutUser
-} from './actions/session/session_actions';
+import { 
+    getDrinks
+} from './actions/whiskey_actions';
+// import {
+//     createNewUser, loginUser, logoutUser
+// } from './actions/session/session_actions';
 
 let preLoadedState = {}
 
@@ -35,4 +38,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.login = loginUser;
     // window.logout = logoutUser;
     // window.signup = createNewUser;
+    window.getDrinks = getDrinks;
 });

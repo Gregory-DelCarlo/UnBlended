@@ -100,7 +100,7 @@ export default class AuthForm extends React.Component {
         //     delete this.state.location : undefined;
 
         const demoUser = ({
-            username: "Chad",
+            username: "Demo User",
             password: "supersecretpassword!"
         })
 

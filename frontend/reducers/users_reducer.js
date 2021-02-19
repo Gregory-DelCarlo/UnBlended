@@ -1,7 +1,7 @@
 import merge from 'lodash/merge';
 import { 
     RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER 
-} from '../actions/session/session_actions';
+} from '../actions/session_actions';
 
 const usersReducer = (state = {}, action) => {
     Object.freeze(state);
