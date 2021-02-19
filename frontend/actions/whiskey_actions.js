@@ -1,5 +1,5 @@
 import { 
-    fetchDrinks, fetchDrink
+    fetchDrinks, fetchDrink, createDrink, updateDrink, deleteDrink
 } from '../util/whiskey_utils';
 
 //----------------------ACTION CONSTANTS--------------------
@@ -8,6 +8,7 @@ import {
 
 export const RECEIVE_DRINKS = 'RECEIVE_DRINKS';
 export const RECEIVE_DRINK = 'RECEIVE_DRINK';
+export const REMOVE_DRINK = 'REMOVE_DRINK';
 
 
 
@@ -25,6 +26,11 @@ const receiveDrink = drink => ({
     drink
 });
 
+const removeDrink = drinkId => ({
+    type: REMOVE_DRINK,
+    drinkId
+});
+
 
 
 
@@ -40,3 +46,18 @@ export const getDrink = drinkId => dispatch => (
     fetchDrink(drinkId)
         .then(drink => dispatch(receiveDrink(drink)))
 );
+
+export const createDrink = drink => dispatch => (
+    createDrink(drink)
+        .then(drink => dispatch(receiveDrink(drink)))
+);
+
+export const updateDrink = drink => dispatch => (
+    updateDrink(drink)
+        .then(drink => dispatch(receiveDrink(drink)))
+);
+
+export const deleteDrink = drinkId => dispatch => (
+    deleteDrink(drinkId) 
+        .then(drink => dispatch(removeDrink(drink.id)))
+)

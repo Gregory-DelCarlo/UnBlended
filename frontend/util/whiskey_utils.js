@@ -19,3 +19,26 @@ export const fetchDrink = drinkId => (
         method: 'GET'
     })
 );
+
+export const createDrink = drink => (
+    $.ajax({
+        url: '/api/whiskeys',
+        method: 'POST',
+        data: { drink }
+    })
+);
+
+export const updateDrink = drink => (
+    $.ajax({
+        url: `/api/whiskeys/${drink.id}`,
+        method: 'PATCH',
+        data: { drink }
+    })
+);
+
+export const deleteDrink = drinkId => (
+    $.ajax({
+        url: `/api/whiskeys/${drinkId}`,
+        method: 'DELETE'
+    })
+);
