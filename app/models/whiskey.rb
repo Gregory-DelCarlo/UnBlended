@@ -9,7 +9,7 @@ class Whiskey < ApplicationRecord
 
 
     # assosciations
-    has_one_attached :photo
+    # has_one_attached :photo
 
     belongs_to :distillery, 
         primary_key: :id,
