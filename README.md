@@ -1,24 +1,15 @@
-# README
+# Unblended
+    Unblended is a simple clone of the popular beer-based social network Untappd. I built UnBlended with a focus on whiskey rather than beer as it is a personal favorite of mine. This is my first full stack project using a multi-language stack, and represents the majority of what I learned during my tiem at App Academy.
+## [UnBlended Live!](https://unblended.herokuapp.com/#/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Unblended Header](app/assets/images/ReadMe/header_snippet.png)
+## What's In the Stack?
+    This Project was completed using a Ruby on Rails backend and a ReactJS frontend. The backend works with a PSQL hosted database and interacts with it using active storage. In the frontend Node is used to package mainly Redux as a state manager used with ReactJS to handle the user interface.
 
-Things you may want to cover:
+# What's in UnBlended?
 
-* Ruby version
+## A Fully Functioning User Authentication System
+    UnBlended features a full user authentication system that allows users to log in, logout, and create relevant data that is tied to their personal account.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Robust Drink Creation and Review System
+    While on UnBlended User's can view a multitude of whiskeys of all varieties. Users wishing to have their own whiskey's on the site can create drinks of their own, that is tied ot their personal account. Additionally when trying a whiskey user's can leave a review of that drink using a full rating system.
