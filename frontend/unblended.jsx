@@ -38,5 +38,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.login = loginUser;
     // window.logout = logoutUser;
     // window.signup = createNewUser;
-    window.getDrinks = getDrinks;
+    // window.getDrinks = getDrinks;
 });
