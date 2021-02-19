@@ -6,11 +6,11 @@ import DrinkForm from './drink_form';
 const mapStateToProps = (state) => ({
     drink: {
         name: '',
-        type: '',
-        abv: 0,
-        proof: 0,
+        type: 'Rye',
+        abv: 80,
+        proof: 160,
         description: '',
-        distillery_id: 0
+        distillery_id: 1
     },
     formType: 'Create Drink'
 });
