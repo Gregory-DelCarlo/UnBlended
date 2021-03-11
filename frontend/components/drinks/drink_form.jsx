@@ -11,7 +11,14 @@ export default class DrinkForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        this.props.submitDrink(this.state);
+        this.props.submitDrink(this.state)
+        .then( () => {
+            if (this.props.formType === 'Create Drink') {
+                return this.props.history.push('/drinks/new');
+            } else {
+                return this.props.history.push(`/drinks/${this.state.id}/edit`);
+            }
+        });
     }
 
 
