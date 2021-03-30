@@ -1,0 +1,50 @@
+.navbar-container {
+    background-color: #fff;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    border-bottom: 1px solid lightgrey;
+}
+
+.navbar-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 1048px;
+    margin: 0 auto;
+    h1 {
+        font-size: 40px;
+    }
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    padding-left: 25px;
+
+    li {
+        padding-right: 25px;
+        font-size: 15px;
+    }
+}
+
+.nav-top {
+    height: 8px;
+    background: #fc0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.profile-icon {
+    padding-left: 100px;
+}
+
+.search-bar {
+    padding-left: 10px;
+}

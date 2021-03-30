@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DrinksIndexItem from './drinks_index_item';
+import Navbar from '../navbar/navbar';
 
 export default class DrinksIndex extends React.Component {
 
@@ -23,14 +24,15 @@ export default class DrinksIndex extends React.Component {
         ))
 
         return (
-            <>
+            <div className='page'>
+                <Navbar />
                 <div className='drinks-box'>
                     <ul className='drinks-list'>
                         {drinks}
                     </ul>
+                    <Link to='/drinks/new' >Create a Drink! </Link>
                 </div>
-                <Link to='/drinks/new' >Create a Drink! </Link>
-            </>
+            </div>
         )
     }
 } 
