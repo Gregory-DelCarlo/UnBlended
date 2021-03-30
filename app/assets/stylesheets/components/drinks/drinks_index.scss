@@ -1,0 +1,10 @@
+.drinks-box {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        padding-top: 20px;
+    }
+}
