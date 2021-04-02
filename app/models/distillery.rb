@@ -6,5 +6,4 @@ class Distillery < ApplicationRecord
         primary_key: :id,
         foreign_key: :distillery_id,
         class_name: :Whiskey
-
 end

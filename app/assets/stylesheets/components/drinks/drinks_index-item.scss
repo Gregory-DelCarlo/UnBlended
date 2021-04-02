@@ -1,8 +1,19 @@
+.drinks-index {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid lightgrey;
+    padding: 10px 0;
+    img {
+        max-height: 70px;
+        max-width: 70px;
+        padding: 0 10px;
+    }
+}
+
 .drinks-item {
     display: flex;
     flex-flow: row nowrap;
-    border-bottom: 1px solid lightgrey;
-    padding: 10px 0;
+    
 }
 
 .drink-details {

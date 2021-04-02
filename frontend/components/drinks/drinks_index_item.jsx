@@ -10,9 +10,9 @@ export default class DrinksIndexItem extends React.Component {
 
     render() {
         const {drink} = this.props;
-
         return (
-            <Link to={`/drinks/${drink.id}`} className='link' >
+            <Link to={`/drinks/${drink.id}`} className='link drinks-index' >
+                <img src={drink.photo} alt='drink image'/>
                 <li className='drinks-item'>
                     <div className='drink-details'>
                         <p id='name'>{drink.name}</p>
