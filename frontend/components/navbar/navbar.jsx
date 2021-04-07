@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
-import DrinkSearchContainer from '../search/drink_search_container';
+import { Link } from 'react-router-dom';
 // use to make nav list actual links when ready
 
 export default class Navbar extends React.Component {
@@ -17,7 +16,6 @@ export default class Navbar extends React.Component {
                     <div className='profile-icon' >
                         DD
                     </div>
-                    <DrinkSearchContainer />
                 </div>
             </div>
         )}

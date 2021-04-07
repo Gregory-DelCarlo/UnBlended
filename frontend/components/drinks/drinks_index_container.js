@@ -3,7 +3,7 @@ import DrinkIndex from './drinks_index';
 import { getDrinks } from '../../actions/whiskey_actions';
 
 const mapStateToProps = (state) => ({
-    drinks: Object.values(state.entities.whiskeys)
+    drinks: Object.values(state.entities.whiskey)
 });
 
 const mapDispatchToProps = (dispatch) => ({

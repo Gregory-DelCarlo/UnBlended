@@ -27,10 +27,18 @@ export default class DrinksIndex extends React.Component {
             <div className='page'>
                 <Navbar />
                 <div className='drinks-box'>
+                    <div className='drinks-list-selector'>
+                        <div className='list-item'>
+                            Whiskey
+                        </div>
+                        <div className='list-item'>
+                            Distillery
+                        </div>
+                    </div>
                     <ul className='drinks-list'>
                         {drinks}
                     </ul>
-                    <Link to='/drinks/new' >Create a Drink! </Link>
+                    <Link className='link' to='/drinks/new' >Create a Drink! </Link>
                 </div>
             </div>
         )

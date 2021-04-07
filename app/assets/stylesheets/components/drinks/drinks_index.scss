@@ -3,8 +3,40 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-
     a {
         padding-top: 20px;
+    }
+}
+
+.drinks-list-selector {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding-top: 15px;
+    width: 860px;
+    div {
+        padding: 12px;
+        font-size: 20px;
+        background-color: #f0f0f0;
+        text-align: center;
+        border-top: 1px solid #e2e2e2;
+        border-bottom: 1px solid #e2e2e2;
+        border-right: 1px solid #e2e2e2;
+        width: 50%;
+    }
+
+    div:last-child {
+        border-right: none;
+    }
+
+    div:hover {
+        background-color: #f8f8f8;
+        cursor: pointer;
+    }
+
+    .selected {
+        background-color: #fff;
+        border-bottom: none;
+        font-weight: 600;
     }
 }
