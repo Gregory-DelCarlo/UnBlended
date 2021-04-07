@@ -4,49 +4,48 @@
     border-bottom: 1px solid lightgrey;
     padding: 10px 0;
     img {
-        max-height: 70px;
-        max-width: 70px;
-        padding: 0 10px;
+        height: 60px;
+        width: 30px;
     }
+}
+
+.drink-img-container {
+    padding: 0 15px;
 }
 
 .drinks-item {
     display: flex;
     flex-flow: row nowrap;
-    
+    font-weight: 500;
 }
 
 .drink-details {
     width: 600px;
     height: 100%;
+    color: #8a4500;
     p {
         line-height: 1.4;
     }
 }
 
 .drink-info {
-    margin-left: 80px;
-    padding-left: 15px;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     border-left: 1px solid lightgrey;
-    width: 200px;
+    width: 210px;
 
     .drink-percents {
         display: flex;
         flex-direction: row;
         text-align: center;
         #abv {
-            padding-right: 25px;
-            padding-bottom: 1em;
+            padding: 0px 15px;
         }
     
         #proof {
-            margin-left: 10px;
             padding-left: 15px;
             border-left: 1px solid lightgrey;
-            padding-bottom: 1em;
         }
     }
 
@@ -57,7 +56,7 @@
         #rating {
             border-top: 1px solid lightgrey;
             padding-top: 1em;
-            width: 100%;
+            width: 210px;
         }
     }
 }
