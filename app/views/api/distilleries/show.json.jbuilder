@@ -1,0 +1,1 @@
+json.partial! 'distillery', distillery: @distillery
