@@ -5,7 +5,7 @@ import whiskeysReducer from './whiskeys_reducer';
 
 const entitiesReducer = combineReducers({
     users: usersReducer,
-    whiskeys: whiskeysReducer
+    whiskey: whiskeysReducer
 });
 
 export default entitiesReducer;
