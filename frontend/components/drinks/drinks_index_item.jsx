@@ -9,8 +9,8 @@ export default class DrinksIndexItem extends React.Component {
         this.seclectInfo = this.selectInfo.bind(this);
     }
 
-    selectItems(item) {
-
+    selectItems() {
+        const {item} = this.props;
         if (this.props.type === 'drinks') {
             return (<div className='drink-details'>
                         <Link to={`/drinks/${item.id}`} className='link' >
@@ -19,16 +19,34 @@ export default class DrinksIndexItem extends React.Component {
                         <p id='dist'>Distillery!</p>
                         <p id='type' style={{color: 'grey'}}>type: {item.type}</p>
                     </div>)
+        } else if (this.props.type === 'distilleries') {
+            return (<div className='drink-details'>
+                        <Link to={`/distilleries/${item.id}`} className='link' >
+                            <p id='name'>{item.name}</p>
+                        </Link>
+                        <p id='city'>{item.city}</p>
+                        <p id='state' style={{color: 'grey'}}>{item.state}</p>
+                    </div>)
         }
     }
 
-    selectInfo(item) {
-
+    selectInfo() {
+        const {item} = this.props;
         if (this.props.type === 'drinks') {
             return (<div className='drink-info'>
                         <div className='drink-percents'>
                             <p id='abv'>{item.abv}% ABV</p>
                             <p id='proof'>{item.proof} proof</p>
+                        </div><br/>
+                        <div className='drink-rating'> 
+                            <p id='rating'>Rating</p>
+                        </div>
+                    </div>)
+        } else if (this.props.type === 'distilleries') {
+            return (<div className='drink-info'>
+                        <div className='drink-percents'>
+                            <p id='whiskey'>{item.whiskeys.length} whiskeys</p>
+                            <p id='total'>4 ratings</p>
                         </div><br/>
                         <div className='drink-rating'> 
                             <p id='rating'>Rating</p>
@@ -47,8 +65,8 @@ export default class DrinksIndexItem extends React.Component {
                     </div>
                 </Link>
                 <li className='drinks-item'>
-                    {this.selectItems(item)}
-                    {this.selectInfo(item)}    
+                    {this.selectItems()}
+                    {this.selectInfo()}    
                 </li>
             </div>
         )
