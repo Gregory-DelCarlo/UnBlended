@@ -5,3 +5,4 @@ json.abv whiskey.abv
 json.proof whiskey.proof
 json.description whiskey.description
 json.distillery whiskey.distillery_id
+json.photo url_for(whiskey.photo)

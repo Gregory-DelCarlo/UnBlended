@@ -4,7 +4,7 @@ import { getDrink, editDrink } from '../../actions/whiskey_actions';
 import DrinkForm from './drink_form';
 
 const mapStateToProps = (state, ownProps) => ({
-  drink: state.entities.whiskeys[ownProps.match.params.drinkId],
+  drink: state.entities.whiskey[ownProps.match.params.drinkId],
   formType: 'Update Drink'
 });
 

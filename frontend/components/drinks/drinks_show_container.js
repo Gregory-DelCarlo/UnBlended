@@ -4,7 +4,7 @@ import DrinksShow from './drinks_show';
 
 const mapStateToProps = (state, ownProps) => {
     return({
-        drink: state.entities.whiskeys[ownProps.match.params.drinkId]
+        drink: state.entities.whiskey[ownProps.match.params.drinkId]
     })
 };
 

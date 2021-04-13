@@ -1,0 +1,9 @@
+json.id distillery.id
+json.name distillery.name
+json.lat distillery.lat
+json.long distillery.long
+json.description distillery.description
+json.established distillery.established
+json.city distillery.city
+json.state distillery.state
+json.whiskeys distillery.whiskey_ids

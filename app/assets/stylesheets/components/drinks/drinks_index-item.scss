@@ -1,0 +1,61 @@
+.drinks-index {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid lightgrey;
+    padding: 10px 0;
+    img {
+        height: 60px;
+        width: 30px;
+    }
+}
+
+.drink-img-container {
+    padding: 0 15px;
+}
+
+.drinks-item {
+    display: flex;
+    flex-flow: row nowrap;
+    font-weight: 500;
+}
+
+.drink-details {
+    width: 600px;
+    height: 100%;
+    color: #8a4500;
+    p {
+        line-height: 1.4;
+    }
+}
+
+.drink-info {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    border-left: 1px solid lightgrey;
+    width: 210px;
+
+    .drink-percents {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        #abv {
+            padding: 0px 15px;
+        }
+    
+        #proof {
+            padding-left: 15px;
+            border-left: 1px solid lightgrey;
+        }
+    }
+
+
+    .drink-rating {
+        text-align: center;
+        #rating {
+            border-top: 1px solid lightgrey;
+            padding-top: 1em;
+            width: 210px;
+        }
+    }
+}

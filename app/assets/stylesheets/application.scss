@@ -26,6 +26,10 @@
 
 }
 
+.page {
+    padding-top: 90px;
+}
+
 .button, .navlink, .link{
     // display: inline-block;
     font-weight: 600;
@@ -33,6 +37,7 @@
     text-transform: uppercase;
     text-decoration: none;
     border-radius: 4px;
+    color: grey;
 }
 
 .short-line {
