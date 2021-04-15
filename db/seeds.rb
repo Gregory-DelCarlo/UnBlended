@@ -339,7 +339,7 @@ whiskeys = [
     { 
         name: 'Woodford Reserve Kentucky Straight Bourbon Whiskey',
         type: 'Bourbon',
-        abv: 95.2,
+        abv: 45.2,
         proof: 90,
         description: 'The art of making fine bourbon first took place on the site of the Woodford Reserve Distillery, a National Historic Landmark, in 1812. The perfectly balanced taste of our Kentucky Straight Bourbon Whiskey is comprised of more than 200 detectable flavor notes, from bold grain and wood, to sweet aromatics, spice, and fruit & floral notes.',
         distillery_id: 2
