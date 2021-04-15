@@ -40,6 +40,7 @@ class Api::WhiskeysController < ApplicationController
 
     private
     def whiskey_params
-        params.require(:whiskey).permit(:name, :type, :abv, :proof, :description, :distillery_id)
+        debugger
+        params.require(:drink).permit(:name, :type, :abv, :proof, :description, :distillery_id)
     end
 end
