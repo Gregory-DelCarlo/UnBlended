@@ -6,7 +6,8 @@ export default class DrinksIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.selectItems = this.selectItems.bind(this);
-        this.seclectInfo = this.selectInfo.bind(this);
+        this.selectInfo = this.selectInfo.bind(this);
+        this.selectAlt = this.selectAlt.bind(this);
     }
 
     selectItems() {
@@ -16,8 +17,8 @@ export default class DrinksIndexItem extends React.Component {
                         <Link to={`/drinks/${item.id}`} className='link' >
                             <p id='name'>{item.name}</p>
                         </Link>
-                        <p id='dist'>Distillery!</p>
-                        <p id='type' style={{color: 'grey'}}>type: {item.type}</p>
+                        <p id='dist'>{this.props.distillery}</p>
+                        <p id='type' style={{color: 'grey'}}>{item.type}</p>
                     </div>)
         } else if (this.props.type === 'distilleries') {
             return (<div className='drink-details'>
@@ -55,14 +56,26 @@ export default class DrinksIndexItem extends React.Component {
         }
     }
 
+    selectAlt() {
+        const {item} = this.props;
+
+        if(this.props.type === 'drinks') {
+            return (<div className='drink-img-container'>
+                        <img src={item.photo} alt='drink image'/>
+                    </div>)
+        }else if(this.props.type === 'distilleries') {
+            return (<div className='drink-img-container'>
+                        <img src={item.photo} alt='distillery image'/>
+                    </div>)
+        }
+    }
+
     render() {
         const {item} = this.props;
         return (
             <div className='drinks-index'>
                 <Link to={`/drinks/${item.id}`} className='link' >
-                    <div className='drink-img-container'>
-                        <img src={item.photo} alt='drink image'/>
-                    </div>
+                    {this.selectAlt()}
                 </Link>
                 <li className='drinks-item'>
                     {this.selectItems()}

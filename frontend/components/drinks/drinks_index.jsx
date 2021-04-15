@@ -27,15 +27,16 @@ export default class DrinksIndex extends React.Component {
 
     selectList(listType) {
         if (listType === 'drinks') {
-            return this.props.drinks.map( drink => (
+            return Object.values(this.props.drinks).map( drink => (
                 <DrinksIndexItem
                     key={drink.id}
                     item={drink}
                     type={listType}
+                    distillery={this.props.distilleries[drink.distillery].name}
                 />
                 ));
         } else if (listType === 'distilleries') {
-            return this.props.distilleries.map( distillery => (
+            return Object.values(this.props.distilleries).map( distillery => (
                 <DrinksIndexItem
                     key={distillery.id}
                     item={distillery}
@@ -51,7 +52,7 @@ export default class DrinksIndex extends React.Component {
                            whiskeySelected: true,
                            distilleriesSelected: false
                         });
-        } else if (e.currentTarget.innerText === 'Distillery') {
+        } else if (e.currentTarget.innerText === 'Distilleries') {
             this.setState({list: this.selectList('distilleries'),
                            whiskeySelected: false,
                            distilleriesSelected: true
@@ -77,13 +78,16 @@ export default class DrinksIndex extends React.Component {
                             className='list-item'
                             className={this.state.distilleriesSelected ? 'selected' : ''}
                         >
-                            Distillery
+                            Distilleries
                         </div>
                     </div>
                     <ul className='drinks-list'>
                         {this.state.list.length !== 0 ? this.state.list : this.selectList('drinks') }
+                        <div className='new-drink-redirect'>
+                            <p>Don't see the drink you're looking for?</p>
+                            <Link to='/drinks/new' >You can add it here</Link>
+                        </div>
                     </ul>
-                    <Link className='link' to='/drinks/new' >Create a Drink! </Link>
                 </div>
             </div>
         )

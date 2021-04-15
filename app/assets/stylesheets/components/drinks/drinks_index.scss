@@ -3,8 +3,9 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    a {
-        padding-top: 20px;
+
+    .drinks-list {
+        padding: 15px 0px;
     }
 }
 
@@ -12,7 +13,7 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    padding-top: 15px;
+    padding: 15px 24px 24px;
     width: 860px;
     div {
         padding: 12px;
@@ -38,5 +39,25 @@
         background-color: #fff;
         border-bottom: none;
         font-weight: 600;
+    }
+
+}
+
+.new-drink-redirect {
+    text-align: center;
+    background-color: #ffa;
+    width: 40%;
+    margin: 24px auto;
+    padding: 8px 0;
+    font-weight: 400;
+    
+    p {
+        margin: 4px;
+    }
+
+    a {
+        display: block;
+        color: #8a4500;
+        text-decoration: none;
     }
 }
