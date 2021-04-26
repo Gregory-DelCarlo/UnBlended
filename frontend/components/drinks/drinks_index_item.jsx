@@ -44,7 +44,6 @@ export default class DrinksIndexItem extends React.Component {
                         </div>
                     </div>)
         } else if (this.props.type === 'distilleries') {
-            // debugger
             return (<div className='drink-info'>
                         <div className='drink-percents'>
                             <p id='whiskey'>{item.whiskeys.length} Whiskeys</p>

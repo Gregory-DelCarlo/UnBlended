@@ -61,7 +61,39 @@ export default class DrinksIndex extends React.Component {
     }
 
     render()  {
-        return (
+        const {distilleries, drinks} = this.props;
+        if ((distilleries && this.state.distilleriesSelected) || (drinks && this.state.whiskeySelected)) {
+            return (
+                <div className='page'>
+                    <Navbar />
+                    <div className='drinks-box'>
+                        <div className='drinks-list-selector'>
+                            <div 
+                                onClick={this.handleListChange} 
+                                className='list-item'
+                                className={this.state.whiskeySelected ? 'selected' : '' }
+                            >
+                                Whiskey
+                            </div>
+                            <div 
+                                onClick={this.handleListChange} 
+                                className='list-item'
+                                className={this.state.distilleriesSelected ? 'selected' : ''}
+                            >
+                                Distilleries
+                            </div>
+                        </div>
+                        <ul className='drinks-list'>
+                            {this.state.list.length !== 0 ? this.state.list : this.selectList('drinks') }
+                            <div className='new-drink-redirect'>
+                                <p>Don't see the drink you're looking for?</p>
+                                <Link to='/drinks/new' >You can add it here</Link>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            )
+        } else if (!drinks && this.state.whiskeySelected) {
             <div className='page'>
                 <Navbar />
                 <div className='drinks-box'>
@@ -82,7 +114,7 @@ export default class DrinksIndex extends React.Component {
                         </div>
                     </div>
                     <ul className='drinks-list'>
-                        {this.state.list.length !== 0 ? this.state.list : this.selectList('drinks') }
+                        Getting drinks...
                         <div className='new-drink-redirect'>
                             <p>Don't see the drink you're looking for?</p>
                             <Link to='/drinks/new' >You can add it here</Link>
@@ -90,6 +122,35 @@ export default class DrinksIndex extends React.Component {
                     </ul>
                 </div>
             </div>
-        )
+        } else if(!distilleries && this.state.distilleriesSelected) {
+            <div className='page'>
+                <Navbar />
+                <div className='drinks-box'>
+                    <div className='drinks-list-selector'>
+                        <div 
+                            onClick={this.handleListChange} 
+                            className='list-item'
+                            className={this.state.whiskeySelected ? 'selected' : '' }
+                        >
+                            Whiskey
+                        </div>
+                        <div 
+                            onClick={this.handleListChange} 
+                            className='list-item'
+                            className={this.state.distilleriesSelected ? 'selected' : ''}
+                        >
+                            Distilleries
+                        </div>
+                    </div>
+                    <ul className='drinks-list'>
+                        Getting distilleries...
+                        <div className='new-drink-redirect'>
+                            <p>Don't see the distillery you're looking for?</p>
+                            <Link to='/drinks/new' >You can add it here</Link>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        }
     }
 } 
