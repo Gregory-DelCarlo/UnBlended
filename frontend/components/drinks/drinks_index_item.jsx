@@ -44,9 +44,10 @@ export default class DrinksIndexItem extends React.Component {
                         </div>
                     </div>)
         } else if (this.props.type === 'distilleries') {
+            // debugger
             return (<div className='drink-info'>
                         <div className='drink-percents'>
-                            <p id='whiskey'>{item.whiskeys.length} whiskeys</p>
+                            <p id='whiskey'>{item.whiskeys.length} Whiskeys</p>
                             <p id='total'>4 ratings</p>
                         </div><br/>
                         <div className='drink-rating'> 
@@ -56,6 +57,7 @@ export default class DrinksIndexItem extends React.Component {
         }
     }
 
+    // this will eventually send the render method two different links once distillery routes are set up
     selectAlt() {
         const {item} = this.props;
 
