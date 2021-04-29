@@ -7,6 +7,8 @@ export default class DrinksIndex extends React.Component {
 
     constructor(props) {
         super(props);
+        this.props.getDrinks();
+        this.props.getDistilleries();
         this.selectList = this.selectList.bind(this);
         this.handleListChange = this.handleListChange.bind(this);
         this.state = {
@@ -14,11 +16,6 @@ export default class DrinksIndex extends React.Component {
             whiskeySelected: true,
             distilleriesSelected: false
         };
-    }
-    
-    componentWillMount() {
-        this.props.getDrinks();
-        this.props.getDistilleries();
     }
 
     componentWillUnMount() {
