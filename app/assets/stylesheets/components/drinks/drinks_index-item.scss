@@ -4,13 +4,15 @@
     border-bottom: 1px solid lightgrey;
     padding: 10px 0;
     img {
-        height: 60px;
-        width: 30px;
+        max-height: 70px;
+        max-width: 40px;
+        font-size: 10px;
     }
 }
 
 .drink-img-container {
-    padding: 0 15px;
+    width: 60px;
+    height: 60px;
 }
 
 .drinks-item {
@@ -39,11 +41,11 @@
         display: flex;
         flex-direction: row;
         text-align: center;
-        #abv {
+        #abv, #whiskey {
             padding: 0px 15px;
         }
     
-        #proof {
+        #proof, #total {
             padding-left: 15px;
             border-left: 1px solid lightgrey;
         }

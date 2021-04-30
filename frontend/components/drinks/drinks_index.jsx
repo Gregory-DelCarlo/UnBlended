@@ -7,61 +7,150 @@ export default class DrinksIndex extends React.Component {
 
     constructor(props) {
         super(props);
-        this.listType = 'drinks';
         this.selectList = this.selectList.bind(this);
+        this.handleListChange = this.handleListChange.bind(this);
+        this.state = {
+            list: [],
+            whiskeySelected: true,
+            distilleriesSelected: false
+        };
+    }
+    
+    componentWillMount() {
+        this.props.getDrinks();
+        this.props.getDistilleries();
     }
 
-    componentDidMount() {
-        this.props.getDrinks();
-    }
     componentWillUnMount() {
         this.props.history.push('/drinks');
     }
 
-    selectList() {
-        let list = [];
-
-        if (this.listType === 'drinks') {
-            list = this.props.drinks.map( drink => (
+    selectList(listType) {
+        if (listType === 'drinks') {
+            return Object.values(this.props.drinks).map( drink => (
                 <DrinksIndexItem
                     key={drink.id}
                     item={drink}
-                    type={this.listType}
+                    type={listType}
+                    distillery={this.props.distilleries[drink.distillery].name}
                 />
-            ))
-        } else if (this.listType === 'distilleries') {
-            list = this.props.distilleries.map( distillery => (
+                ));
+        } else if (listType === 'distilleries') {
+            return Object.values(this.props.distilleries).map( distillery => (
                 <DrinksIndexItem
                     key={distillery.id}
                     item={distillery}
-                    type={this.listType}
+                    type={listType}
                 />
             ));
         }
+    }
 
-        return list;
+    handleListChange(e) {
+        if (e.currentTarget.innerText === 'Whiskey') {
+            this.setState({list: this.selectList('drinks'),
+                           whiskeySelected: true,
+                           distilleriesSelected: false
+                        });
+        } else if (e.currentTarget.innerText === 'Distilleries') {
+            this.setState({list: this.selectList('distilleries'),
+                           whiskeySelected: false,
+                           distilleriesSelected: true
+                        });
+        }
     }
 
     render()  {
-
-        return (
+        const {distilleries, drinks} = this.props;
+        if ((distilleries && this.state.distilleriesSelected) || (drinks && this.state.whiskeySelected)) {
+            return (
+                <div className='page'>
+                    <Navbar />
+                    <div className='drinks-box'>
+                        <div className='drinks-list-selector'>
+                            <div 
+                                onClick={this.handleListChange} 
+                                className='list-item'
+                                className={this.state.whiskeySelected ? 'selected' : '' }
+                            >
+                                Whiskey
+                            </div>
+                            <div 
+                                onClick={this.handleListChange} 
+                                className='list-item'
+                                className={this.state.distilleriesSelected ? 'selected' : ''}
+                            >
+                                Distilleries
+                            </div>
+                        </div>
+                        <ul className='drinks-list'>
+                            {this.state.list.length !== 0 ? this.state.list : this.selectList('drinks') }
+                            <div className='new-drink-redirect'>
+                                <p>Don't see the drink you're looking for?</p>
+                                <Link to='/drinks/new' >You can add it here</Link>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            )
+        } else if (!drinks && this.state.whiskeySelected) {
             <div className='page'>
                 <Navbar />
                 <div className='drinks-box'>
                     <div className='drinks-list-selector'>
-                        <div className='list-item'>
+                        <div 
+                            onClick={this.handleListChange} 
+                            className='list-item'
+                            className={this.state.whiskeySelected ? 'selected' : '' }
+                        >
                             Whiskey
                         </div>
-                        <div className='list-item'>
-                            Distillery
+                        <div 
+                            onClick={this.handleListChange} 
+                            className='list-item'
+                            className={this.state.distilleriesSelected ? 'selected' : ''}
+                        >
+                            Distilleries
                         </div>
                     </div>
                     <ul className='drinks-list'>
-                        {this.selectList()}
+                        Getting drinks...
+                        <div className='new-drink-redirect'>
+                            <p>Don't see the drink you're looking for?</p>
+                            <Link to='/drinks/new' >You can add it here</Link>
+                        </div>
                     </ul>
-                    <Link className='link' to='/drinks/new' >Create a Drink! </Link>
                 </div>
             </div>
-        )
+        } else if(!distilleries && this.state.distilleriesSelected) {
+            <div className='page'>
+                <Navbar />
+                <div className='drinks-box'>
+                    <div className='drinks-list-selector'>
+                        <div 
+                            onClick={this.handleListChange} 
+                            className='list-item'
+                            className={this.state.whiskeySelected ? 'selected' : '' }
+                        >
+                            Whiskey
+                        </div>
+                        <div 
+                            onClick={this.handleListChange} 
+                            className='list-item'
+                            className={this.state.distilleriesSelected ? 'selected' : ''}
+                        >
+                            Distilleries
+                        </div>
+                    </div>
+                    <ul className='drinks-list'>
+                        Getting distilleries...
+                        <div className='new-drink-redirect'>
+                            <p>Don't see the distillery you're looking for?</p>
+                            <Link to='/drinks/new' >You can add it here</Link>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        }
     }
 } 
