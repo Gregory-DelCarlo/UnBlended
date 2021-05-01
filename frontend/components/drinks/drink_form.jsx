@@ -16,9 +16,6 @@ export default class DrinkForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.typeList = this.typeList.bind(this);
         this.distilleryList = this.distilleryList.bind(this);
-    }
-    
-    componentWillMount() {
         this.props.getDistilleries();
     }
 
@@ -74,25 +71,30 @@ export default class DrinkForm extends React.Component {
             <div className='page'>
                 <NavBar />
                 <div className='drinks-box'>
-                    <form onSubmit={this.handleSubmit}>
-                        <div>{this.props.formType}</div>
-                        <label>Name
+                    <form onSubmit={this.handleSubmit} className='drinks-form'>
+                        <div id='title'>
+                            <h1>{this.props.formType}</h1>
+                            <p>Did you notice something incorrect with the details of this beer? Help us out by editing it here. Once you're changes are verified you will see the updates on your drinks' page.</p>
+                        </div>
+                        <label id='name'>Name<br/>
                             <input type='name' value={this.state.name}  onChange={this.update('name')}/>
                         </label>
-                        <label>Distillery
+                        <label id='distillery'>Distillery<br/>
                             {this.distilleryList()}
                         </label>
-                        <label>Type
-                            {this.typeList()}
-                        </label>
-                        <label>ABV
-                            <input type='number' value={this.state.abv} min='40' max='80' onChange={this.update('abv')}/>
-                        </label>
-                        <label>Proof
-                            <input type='number' value={this.state.proof} min='80' max='160' onChange={this.update('proof')}/>
-                        </label>
-                        <label>Description
-                            <input type='text' value={this.state.description} onChange={this.update('description')}/>
+                        <div id='drink-details'>
+                            <label id='abv'>ABV<br/>
+                                <input type='number' value={this.state.abv} min='40' max='80' onChange={this.update('abv')}/>
+                            </label>
+                            <label id='proof'>Proof<br/>
+                                <input type='number' value={this.state.proof} min='80' max='160' onChange={this.update('proof')}/>
+                            </label>
+                            <label id='type'>Type<br/>
+                                {this.typeList()}
+                            </label>
+                        </div>
+                        <label id='description'>Description<br />
+                            <textarea type='text' value={this.state.description} onChange={this.update('description')}/>
                         </label>
                         <button type="submit" value={this.props.formType} >{this.props.formType} </button>
                     </form>

@@ -7,7 +7,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import DrinksIndexContainer from './drinks/drinks_index_container';
 import DrinksShowContainer from './drinks/drinks_show_container';
 import CreateDrinkContainer from './drinks/create_drink_container';
-import EditDrinkContainer from './drinks/edit_drink container';
+import EditDrinkContainer from './drinks/edit_drink_container';
 
 
 const App = () => (
