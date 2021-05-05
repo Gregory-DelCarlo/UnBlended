@@ -48,7 +48,7 @@ class User < ApplicationRecord
 
     #---------------------------Associations-----------------------------
 
-    has_may :reviews,
+    has_many :reviews,
         primary_key: id,
         foreign_key: :user_id,
         class_name: :Review
