@@ -2,6 +2,14 @@ class Review < ApplicationRecord
     validates :whiskey_id, :user_id, presence: true
 
 
+    def self.filtered(type, id)
+        if type == 'Drink'
+            Review.find_by(whiskey_id: id)
+        elsif type == 'Feed'
+            Review.find_by(user_id: id)
+        end
+    end
+
     belongs_to :whiskey,
         primary_key: :id,
         foreign_key: :whiskey_id,
