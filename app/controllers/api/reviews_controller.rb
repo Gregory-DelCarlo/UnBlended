@@ -9,8 +9,8 @@ class Api::ReviewsController < ApplicationController
         end
     end
 
-    def index 
-        @reviews = Reviews.filtered(query_params, params[:id])
+    def index
+        @reviews = Review.filtered(params[:type], params[:id])
     end
 
     def show
@@ -30,7 +30,7 @@ class Api::ReviewsController < ApplicationController
     def destroy
         @review = Review.find(params[:id])
         drink_id = @review.whiskey_id
-        if current_user.id == @review.user_id
+        if current_user == @review.user_id
             if @review.destroy 
                 redirect_to `drinks/#{drink_id}`
             else
@@ -42,10 +42,6 @@ class Api::ReviewsController < ApplicationController
     end
 
     private
-    def query_params 
-        query_params = params[:query]
-        query_params ? query_params.permit(:type) : {} 
-    end
 
     def review_params
         params.require(:review).permit(:rating, :body, :location, :whiskey_id, :user_id)

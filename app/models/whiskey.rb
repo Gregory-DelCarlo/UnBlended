@@ -17,7 +17,7 @@ class Whiskey < ApplicationRecord
         class_name: :Distillery
 
     has_many :reviews,
-        primary_key: id,
+        primary_key: :id,
         foreign_key: :whiskey_id,
         class_name: :Review
     

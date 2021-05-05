@@ -4,9 +4,9 @@ class Review < ApplicationRecord
 
     def self.filtered(type, id)
         if type == 'Drink'
-            Review.find_by(whiskey_id: id)
+            Review.where(whiskey_id: id)
         elsif type == 'Feed'
-            Review.find_by(user_id: id)
+            Review.where(user_id: id)
         end
     end
 
