@@ -45,4 +45,12 @@ class User < ApplicationRecord
         self.session_token = SecureRandom.urlsafe_base64
     end
 
+
+    #---------------------------Associations-----------------------------
+
+    has_may :reviews,
+        primary_key: id,
+        foreign_key: :user_id,
+        class_name: :Review
+
 end
