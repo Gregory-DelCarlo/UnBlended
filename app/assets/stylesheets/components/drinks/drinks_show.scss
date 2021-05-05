@@ -1,0 +1,99 @@
+.drinks-show {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    max-width: 1048px;
+    margin: 28px auto 64px;
+    padding: 0 12px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.full-drink {
+    grid-column: 1;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px rgb(0, 22, 36 * .08), 0 1px 3px rgb(0, 22, 36 * .16);
+    box-sizing: border-box;
+    padding: 16px;
+    margin: 16px;
+    width: 100%;
+
+    #top {
+        padding-right: 224px;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 16px;
+        div {
+            line-height: .7;
+            padding-top: 5px;
+            #name {
+                font-size: 30px;
+                font-weight: 400;
+                line-height: 1;
+            }
+            p {
+                font-size: 15px;
+            }
+        }
+
+
+        img {
+            max-height: 90px;
+            max-width: 60px;
+            font-size: 10px;
+        }
+    }
+
+    #info {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        font-size: 15px;
+        margin-bottom: 16px;
+        border-top: 2px solid grey;
+        border-bottom: 2px solid grey;
+        
+        p {
+            padding: 15px 50px 15px 0px;
+            border-right: 2px solid grey;
+        }
+
+        :last-child {
+            border-right: none;
+            padding: 15px 0px;
+        }
+    }
+
+
+    #description {
+        width: 74%;
+    }
+}
+
+
+.sidebar {
+    grid-column: 2;
+    grid-row: 1;
+    // width: 300px;
+    padding-left: 50px;
+    margin-top: 30px;
+    
+    a, button {
+        line-height: 2;
+        margin-left: 20px;
+        color: #8a4500;
+        text-decoration: none;
+        background: none!important;
+        background-color: transparent; 
+        text-transform: none;
+        font-weight: 300;
+        border: 0; 
+        padding: 0;
+    }
+
+    a:hover, button:hover {
+        color: #c60;
+    }
+}

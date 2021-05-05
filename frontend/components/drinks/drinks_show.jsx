@@ -5,40 +5,49 @@ import Navbar from '../navbar/navbar'
 export default class DrinksShow extends React.Component {
     constructor(props) {
         super(props);
-    }
-
-    componentWillMount() {
         this.props.requestDrink();
+        if (this.props.drink) {
+            this.props.getDistillery(this.props.drink.distillery);
+        }
     }
 
     render() {
-        const { drink } = this.props;
+        const { drink, distillery } = this.props;
         if (drink ) {
             return(
                 <div className='page'>
                     <Navbar />
                     <div className='drinks-show'>
-                        <div>
-                            <p>{drink.name}</p>
-                            <p>Distillery: </p> 
-                            {/* add when distillery api is set up  */}
-                            <p>Type: {drink.type}</p>
+                        <div className='full-drink'>
+                            <div id='top'>
+                                <img src={drink.photo}></img>
+                                <div>
+                                <p id='name'>{drink.name}</p><br/>
+                                <p id='distillery'>{distillery.name} </p><br/>
+                                {/* add when distillery api is set up  */}
+                                <p>{drink.type}</p>
+                                </div>
+                            </div>
+                            <div id='info'>
+                                <p>{drink.abv}% ABV</p>
+                                <p>{drink.proof} Proof</p>
+                                <p>rating %</p>
+                                <p> total ratings </p>
+                            </div>
+                            <div id='description'>{drink.description}</div>
                         </div>
-                        <div>
-                            <p>ABV: {drink.abv}</p>
-                            <p>Proof: {drink.proof}</p>
-                        </div>
-                        <div>{drink.description}</div>
                         <br />
-                        <Link to={`/drinks/${drink.id}/edit`} >Edit Drink</Link>
-                        <button className='button' onClick={this.props.deleteDrink}>Delete Drink</button>
+                        <div className='sidebar'>
+                            <Link to={`/drinks/${drink.id}/edit`} >Edit Drink</Link><br/>
+                            <button className='button' onClick={this.props.deleteDrink}>Delete Drink</button>
+                        </div>
                     </div>
                 </div>
             )
         }
 
         return (<div className='page'>
-            Drink not found.
+            Drink loading ...
         </div>)
     }
 }
