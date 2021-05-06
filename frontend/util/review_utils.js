@@ -2,10 +2,7 @@ export const fetchReviews = (type, id) => (
     $.ajax({
         url: '/api/reviews',
         method: 'GET',
-        data: {
-            type,
-            id
-        }
+        data: { type, id }
     })
 );
 
@@ -24,7 +21,7 @@ export const createReview = review => (
     })
 );
 
-export const updateDrink = review => (
+export const updateReview = review => (
     $.ajax({
         url: `/api/reviews/${review.id}`,
         method: 'PATCH',
@@ -32,7 +29,7 @@ export const updateDrink = review => (
     })
 );
 
-export const deleteDrink = reviewId => (
+export const deleteReview = reviewId => (
     $.ajax({
         url: `/api/reviews/${reviewId}`,
         method: 'DELETE'
