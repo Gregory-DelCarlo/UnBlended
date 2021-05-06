@@ -56,7 +56,7 @@ export const editReview = review => dispatch => (
         .then(review => dispatch(receiveReview(review)))
 );
 
-export const destroyReview = reviewId => dispatch => (
-    deleteReview(reviewId)
+export const destroyReview = (reviewId, userId) => dispatch => (
+    deleteReview(reviewId, userId)
         .then(review => dispatch(removeReview(review.id)))
 );
