@@ -48,7 +48,7 @@ export const getReview = reviewId => dispatch => (
 
 export const newReview = review => dispatch => (
     createReview(review)
-        .then(review => dispatch(removeReview(review)))
+        .then(review => dispatch(receiveReview(review)))
 );
 
 export const editReview = review => dispatch => (
