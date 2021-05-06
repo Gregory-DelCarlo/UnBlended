@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../navbar/navbar'
+import Navbar from '../navbar/navbar';
+import ReviewsIndexContainer from '../reviews/reviews_index_container';
 
 export default class DrinksShow extends React.Component {
     constructor(props) {
@@ -9,6 +10,13 @@ export default class DrinksShow extends React.Component {
         if (this.props.drink) {
             this.props.getDistillery(this.props.drink.distillery);
         }
+
+        this.getDrinkId = this.getDrinkId.bind(this);
+    }
+
+    getDrinkId() {
+        let url = this.props.history.location.pathname;
+        return url.split('/')[2];
     }
 
     render() {
@@ -42,6 +50,7 @@ export default class DrinksShow extends React.Component {
                             <button className='button' onClick={this.props.deleteDrink}>Delete Drink</button>
                         </div>
                     </div>
+                    <ReviewsIndexContainer id={this.getDrinkId}/>
                 </div>
             )
         }
