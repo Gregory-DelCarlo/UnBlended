@@ -13,7 +13,7 @@ export default class ReviewsIndex extends React.Component {
     }
 
     createReviews() {
-        const { reviews } = this.props;
+        const { reviews, distilleries, users } = this.props;
         return Object.values(reviews).map( review => (
             <ReviewsIndexItem
                 key={review.id}
