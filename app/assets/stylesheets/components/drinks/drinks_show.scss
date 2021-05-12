@@ -14,7 +14,7 @@
     grid-column: 1;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 1px 1px rgb(0, 22, 36 * .08), 0 1px 3px rgb(0, 22, 36 * .16);
+    box-shadow: 0 1px 1px rgba(0, 22, 36, 8%), 0 1px 3px rgba(0, 22, 36, 16%);
     box-sizing: border-box;
     padding: 16px;
     margin: 16px;
@@ -43,6 +43,7 @@
             max-height: 90px;
             max-width: 60px;
             font-size: 10px;
+            padding-right: 15px;
         }
     }
 

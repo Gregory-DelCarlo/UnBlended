@@ -5,10 +5,16 @@ import DrinksShow from './drinks_show';
 
 const mapStateToProps = (state, ownProps) => {
     const drink = state.entities.whiskey[ownProps.match.params.drinkId];
-    return({
-        drink,
-        distillery: state.entities.distilleries
-    })
+    if (drink) {
+        return({
+            drink,
+            distillery: state.entities.distilleries[drink.distillery] ? state.entities.distilleries[drink.distillery] : ''
+        })
+    } else {
+        return {
+            
+        }
+    }
 };
 
 const mapDispatchToProps = (dispatch, ownProps ) => ({
