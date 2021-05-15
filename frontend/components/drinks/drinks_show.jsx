@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
 import ReviewsIndexContainer from '../reviews/reviews_index_container';
+import CreateReviewsContainer from '../reviews/create_reviews_container';
 
 export default class DrinksShow extends React.Component {
     constructor(props) {
@@ -12,11 +13,32 @@ export default class DrinksShow extends React.Component {
         }
 
         this.getDrinkId = this.getDrinkId.bind(this);
+
+        this.checkModalClose = this.checkModalClose.bind(this);
+        this.openModal = this.openModal.bind(this);
+
+        this.checkModalClose();
     }
 
     getDrinkId() {
         let url = this.props.history.location.pathname;
         return url.split('/')[2];
+    }
+
+    checkModalClose() {
+        window.onclick = function(event) {
+            if (event.target.className == 'modal') {
+              event.target.removeClass('open');
+            }
+        };
+    }
+
+    openModal() {
+        modal = document.getElementsByClassName('modal');
+        debugger
+        if (modal) {
+            modal.addClass('open');
+        }
     }
 
     render() {
@@ -25,6 +47,7 @@ export default class DrinksShow extends React.Component {
             return(
                 <div className='page'>
                     <Navbar />
+                    <CreateReviewsContainer />
                     <div className='drinks-show'>
                         <div className='full-drink'>
                             <div id='top'>
@@ -43,6 +66,9 @@ export default class DrinksShow extends React.Component {
                                 <p> total ratings </p>
                             </div>
                             <div id='description'>{drink.description}</div>
+                            <div className = 'user-drink-options'>
+                                <button id='check-in' onClick={this.openModal} />
+                            </div>
                         </div>
                         <br />
                         <div className='sidebar'>

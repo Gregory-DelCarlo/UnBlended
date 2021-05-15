@@ -71,6 +71,18 @@
     #description {
         width: 74%;
     }
+
+    .user-drink-options {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+
+        #check-in {
+            width: 40px;
+            height: 40px;
+            background-color: green;
+        }
+    }
 }
 
 
