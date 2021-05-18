@@ -4,8 +4,10 @@ import {Link} from 'react-router-dom';
 export default class ReviewsIndexItem extends React.Component {
     constructor(props) {
         super(props);
+        
         this.props.getDrink(this.props.review.whiskey);
-        this.props.getUser(this.props.review.user)
+        this.props.getUser(this.props.review.user);
+        this.props.getDistillery(this.props.whiskey.distillery);
     }
 
     render() {

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import reviewsIndexItem from './reviews_index_item';
 import { getDrink } from '../../actions/whiskey_actions';
 import { getUser } from '../../actions/user_actions';
+import { getDistillery } from '../../actions/distillery_actions';
 
 const mapStateToProps = (state, ownProps) => {{
     const whiskey = state.entities.whiskey[ownProps.review.whiskey];
@@ -14,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {{
 
 const mapDispatchToProps = dispatch => ({
     getDrink: drinkId => dispatch(getDrink(drinkId)),
-    getUser: userId => dispatch(getUser(userId))
+    getUser: userId => dispatch(getUser(userId)),
+    getDistillery: distId => dispatch(getDistillery(distId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(reviewsIndexItem);
