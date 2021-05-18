@@ -25,7 +25,6 @@ export default class CreateReviewss extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
         this.props.submitReview(this.state)
             .then( () => {
                 this.resetState()

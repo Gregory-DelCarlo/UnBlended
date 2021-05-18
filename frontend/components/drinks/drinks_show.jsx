@@ -57,7 +57,7 @@ export default class DrinksShow extends React.Component {
             return(
                 <div className='page'>
                     <Navbar />
-                    <CreateReviewsContainer isOpen={isOpen} closeModal={this.closeModal}/>
+                    <CreateReviewsContainer isOpen={isOpen} closeModal={this.closeModal} drink={drink.id}/>
                     <div className='drinks-show'>
                         <div className='full-drink'>
                             <div id='top'>
