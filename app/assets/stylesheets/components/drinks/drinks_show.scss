@@ -121,25 +121,24 @@
                     display:inline-block;
                     width: 22px;
                     height:22px;
-                    -ms-transform: rotate(45deg); /* IE 9 */
-                    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
                     transform: rotate(45deg);
+
                     #checkmark_stem {
                         position: absolute;
-                        width:3px;
-                        height:9px;
-                        background-color:#ccc;
-                        left:11px;
-                        top:6px;
+                        width: 7px;
+                        height: 28px;
+                        background-color: #fff;
+                        left: 9px;
+                        top: -5px;
                     }
                     
                     #checkmark_kick {
                         position: absolute;
-                        width:3px;
-                        height:3px;
-                        background-color:#ccc;
-                        left:8px;
-                        top:12px;
+                        width: 9px;
+                        height: 7px;
+                        background-color: #fff;
+                        left: 0px;
+                        top: 16px;
                     }
                 }
                 
