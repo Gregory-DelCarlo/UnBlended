@@ -7,17 +7,22 @@ import CreateReviewsContainer from '../reviews/create_reviews_container';
 export default class DrinksShow extends React.Component {
     constructor(props) {
         super(props);
+
+
+        this.state = {
+            isOpen: false,
+            readMore: false
+        }
+
         this.props.requestDrink();
         if (this.props.drink) {
             this.props.getDistillery(this.props.drink.distillery);
         }
 
         this.getDrinkId = this.getDrinkId.bind(this);
-
         this.checkModalClose = this.checkModalClose.bind(this);
         this.openModal = this.openModal.bind(this);
-
-        this.checkModalClose();
+        this.toggleDescLength = this.toggleDescLength.bind(this);
     }
 
     getDrinkId() {
@@ -25,38 +30,45 @@ export default class DrinksShow extends React.Component {
         return url.split('/')[2];
     }
 
-    checkModalClose() {
-        window.onclick = function(event) {
-            if (event.target.className == 'modal') {
-              event.target.removeClass('open');
-            }
-        };
+    openModal() {
+        this.setState({isOpen: true});
     }
 
-    openModal() {
-        modal = document.getElementsByClassName('modal');
-        debugger
-        if (modal) {
-            modal.addClass('open');
+    checkModalClose(e) {
+        if (e.target.className == 'modal') {
+            this.setState({isOpen: false});
+        }
+    }
+
+    toggleDescLength() {
+        let descButton = document.getElementById('desc-button');
+
+        if(this.state.readMore) {
+            this.setState({readMore: false});
+            descButton.innerHTML = 'Read Less';
+        } else {
+            this.setState({readMore: true});
+            descButton.innerHTML = 'Read More';
         }
     }
 
     render() {
         const { drink, distillery } = this.props;
+        const { isOpen, readMore } = this.state;
         if (drink ) {
             return(
                 <div className='page'>
                     <Navbar />
-                    <CreateReviewsContainer />
+                    <CreateReviewsContainer isOpen={isOpen} checkModalClose={this.checkModalClose}/>
                     <div className='drinks-show'>
                         <div className='full-drink'>
                             <div id='top'>
                                 <img src={drink.photo}></img>
                                 <div>
-                                <p id='name'>{drink.name}</p><br/>
-                                <p id='distillery'>{distillery.name} </p><br/>
-                                {/* add when distillery api is set up  */}
-                                <p>{drink.type}</p>
+                                    <p id='name'>{drink.name}</p><br/>
+                                    <p id='distillery'>{distillery.name} </p><br/>
+                                    {/* add when distillery api is set up  */}
+                                    <p>{drink.type}</p>
                                 </div>
                             </div>
                             <div id='info'>
@@ -65,12 +77,22 @@ export default class DrinksShow extends React.Component {
                                 <p>rating %</p>
                                 <p> total ratings </p>
                             </div>
-                            <div id='description'>{drink.description}</div>
-                            <div className = 'user-drink-options'>
-                                <button id='check-in' onClick={this.openModal} />
+                            <div id='bottom'>
+                                <div id='description'>
+                                    <span>{drink.description.slice(0, 83)}</span>
+                                    <span className={readMore ? 'more' : 'less'}>{drink.description.slice(83)}</span>
+                                    <button id='desc-button' onClick={this.toggleDescLength} > Read More</button>
+                                </div>
+                                <div className = 'user-drink-options'>
+                                    <button id='check-in' onClick={this.openModal} >
+                                        <span id="checkmark">
+                                            <div id="checkmark_stem"></div>
+                                            <div id="checkmark_kick"></div>
+                                        </span>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        <br />
+                        </div><br />
                         <div className='sidebar'>
                             <Link to={`/drinks/${drink.id}/edit`} >Edit Drink</Link><br/>
                             <button className='button' onClick={this.props.deleteDrink}>Delete Drink</button>
