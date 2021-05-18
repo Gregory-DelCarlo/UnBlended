@@ -81,10 +81,25 @@
 
             .more {
                 display: inline;
+                padding-inline-end: 4px;
             }
 
             .less {
                 display: none;
+            }
+
+            #desc-button {
+                text-decoration: none;
+                background: none;
+                border: none;
+                padding: 0px;
+                font-size: inherit;
+                line-height: inherit;
+                color: #8a4500;
+            }
+
+            #desc-button:hover {
+                color: #c60;
             }
         }
 

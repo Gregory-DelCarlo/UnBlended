@@ -45,10 +45,10 @@ export default class DrinksShow extends React.Component {
 
         if(this.state.readMore) {
             this.setState({readMore: false});
-            descButton.innerHTML = 'Read Less';
+            descButton.innerHTML = 'Show More';
         } else {
             this.setState({readMore: true});
-            descButton.innerHTML = 'Read More';
+            descButton.innerHTML = 'Show Less';
         }
     }
 
@@ -81,7 +81,7 @@ export default class DrinksShow extends React.Component {
                                 <div id='description'>
                                     <span>{drink.description.slice(0, 83)}</span>
                                     <span className={readMore ? 'more' : 'less'}>{drink.description.slice(83)}</span>
-                                    <button id='desc-button' onClick={this.toggleDescLength} > Read More</button>
+                                    <button id='desc-button' onClick={this.toggleDescLength} >Show More</button>
                                 </div>
                                 <div className = 'user-drink-options'>
                                     <button id='check-in' onClick={this.openModal} >
