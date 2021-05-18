@@ -22,6 +22,7 @@ export default class DrinksShow extends React.Component {
         this.getDrinkId = this.getDrinkId.bind(this);
         this.checkModalClose = this.checkModalClose.bind(this);
         this.openModal = this.openModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
         this.toggleDescLength = this.toggleDescLength.bind(this);
     }
 
@@ -32,6 +33,10 @@ export default class DrinksShow extends React.Component {
 
     openModal() {
         this.setState({isOpen: true});
+    }
+
+    closeModal() {
+        this.setState({isOpen: false});
     }
 
     checkModalClose(e) {
@@ -59,7 +64,7 @@ export default class DrinksShow extends React.Component {
             return(
                 <div className='page'>
                     <Navbar />
-                    <CreateReviewsContainer isOpen={isOpen} checkModalClose={this.checkModalClose}/>
+                    <CreateReviewsContainer isOpen={isOpen} checkModalClose={this.checkModalClose} closeModal={this.closeModal}/>
                     <div className='drinks-show'>
                         <div className='full-drink'>
                             <div id='top'>
