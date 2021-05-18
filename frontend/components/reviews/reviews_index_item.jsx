@@ -9,7 +9,7 @@ export default class ReviewsIndexItem extends React.Component {
     }
 
     render() {
-        const {review, whiskey, user} = this.props;
+        const {review, whiskey, user, distillery} = this.props;
         return (
             <div className='reviews-index' >
                 <div className='review-head'>
@@ -17,6 +17,8 @@ export default class ReviewsIndexItem extends React.Component {
                         <Link to=''>{user.username} </Link>
                         is drinking a
                         <Link to={`/drinks/${whiskey.id}`}> {whiskey.name} </Link>
+                        by 
+                        <span id='distillery'> {distillery.name} </span>
                         at 
                         <span id='location'> {review.location} </span>
                     </div>
