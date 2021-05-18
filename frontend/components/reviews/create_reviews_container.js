@@ -10,9 +10,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    submitReview: review => dispatch(newReview(review)),
-    closeModal: ownProps.closeModal
+    submitReview: review => dispatch(newReview(review))
 
 })
 
-export default connect(mapStateToProps, null)(CreateReviews);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateReviews);

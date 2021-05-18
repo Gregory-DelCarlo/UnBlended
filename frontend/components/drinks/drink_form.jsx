@@ -5,6 +5,7 @@ import NavBar from '../navbar/navbar';
 export default class DrinkForm extends React.Component {
     constructor(props) {
         super(props);
+        
         this.state =  this.props.drink ? this.props.drink : {
             name: '',
             type: '',
@@ -13,6 +14,7 @@ export default class DrinkForm extends React.Component {
             description: '',
             distillery_id: 0
         };
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.typeList = this.typeList.bind(this);
         this.distilleryList = this.distilleryList.bind(this);
