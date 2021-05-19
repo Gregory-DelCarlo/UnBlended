@@ -11,7 +11,7 @@ export default class ReviewsIndex extends React.Component {
 
     createReviews() {
         const { reviews } = this.props;
-        return Object.values(reviews).map( review => (
+        return Object.values(reviews).reverse().map( review => (
             <ReviewsIndexItemContainer
                 key={review.id}
                 review={review}

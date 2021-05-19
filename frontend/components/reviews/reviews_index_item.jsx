@@ -75,8 +75,8 @@ export default class ReviewsIndexItem extends React.Component {
         if (currentDate[1] === reviewDate[1]) {
             if (currentDate[2] === reviewDate[2]){
                 let cTimeStamp = currentDate[4].split(':');
-                let cHours = cTimeStamp[0]
-                debugger
+                let cHours = cTimeStamp[0];
+                
                 let rTimeStamp = reviewDate[4].split(':');
                 let rHours = rTimeStamp[0]
                 if(cHours === rHours) {
