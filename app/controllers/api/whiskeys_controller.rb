@@ -32,7 +32,7 @@ class Api::WhiskeysController < ApplicationController
         @whiskey = Whiskey.find(params[:id])
 
         if @whiskey.destroy
-            redirect_to '/drinks'
+            render :show
         else
             render json: @whiskey.errors.full_messages, status: 422
         end

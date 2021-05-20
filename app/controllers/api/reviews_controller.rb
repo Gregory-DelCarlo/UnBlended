@@ -29,10 +29,9 @@ class Api::ReviewsController < ApplicationController
 
     def destroy
         @review = Review.find(params[:id])
-        drink_id = @review.whiskey_id
-        if current_user == @review.user_id
-            if @review.destroy 
-                redirect_to `drinks/#{drink_id}`
+        if Integer(params[:userId]) == @review.user_id
+            if @review.destroy
+                render :show
             else
                 render json: @review.errors.full_messages, status: 422
             end

@@ -14,7 +14,7 @@
     grid-column: 1;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 1px 1px rgb(0, 22, 36 * .08), 0 1px 3px rgb(0, 22, 36 * .16);
+    box-shadow: 0 1px 1px rgba(0, 22, 36, 8%), 0 1px 3px rgba(0, 22, 36, 16%);
     box-sizing: border-box;
     padding: 16px;
     margin: 16px;
@@ -43,6 +43,7 @@
             max-height: 90px;
             max-width: 60px;
             font-size: 10px;
+            padding-right: 15px;
         }
     }
 
@@ -66,9 +67,87 @@
         }
     }
 
+    #bottom {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
 
-    #description {
-        width: 74%;
+        #description {
+            width: 74%;
+            vertical-align: top;
+            font-size: 1.125em;
+            line-height: 1.25em;
+            color: #595959;
+
+            .more {
+                display: inline;
+                padding-inline-end: 4px;
+            }
+
+            .less {
+                display: none;
+            }
+
+            #desc-button {
+                text-decoration: none;
+                background: none;
+                border: none;
+                padding: 0px;
+                font-size: inherit;
+                line-height: inherit;
+                color: #8a4500;
+            }
+
+            #desc-button:hover {
+                color: #c60;
+            }
+        }
+
+
+        .user-drink-options {
+            display: flex;
+            flex-flow: row nowrap;
+        
+            #check-in {
+                width: 52px;
+                height: 52px;
+                background-color: #1b8811;
+                border: none;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                #checkmark {
+                    display:inline-block;
+                    width: 22px;
+                    height:22px;
+                    transform: rotate(45deg);
+
+                    #checkmark_stem {
+                        position: absolute;
+                        width: 7px;
+                        height: 28px;
+                        background-color: #fff;
+                        left: 9px;
+                        top: -5px;
+                    }
+                    
+                    #checkmark_kick {
+                        position: absolute;
+                        width: 9px;
+                        height: 7px;
+                        background-color: #fff;
+                        left: 0px;
+                        top: 16px;
+                    }
+                }
+                
+            }
+
+            #check-in:hover {
+                background-color: #125b0b;
+            }
+        }
     }
 }
 

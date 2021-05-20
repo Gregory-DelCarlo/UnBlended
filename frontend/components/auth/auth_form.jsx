@@ -11,6 +11,7 @@ export default class AuthForm extends React.Component {
         const {formType, submit} = this.props;
         this.formType = formType;
         this.submit = submit;
+        
         if (this.formType === 'Sign Up') {
             this.state = {
                 username: '',

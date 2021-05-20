@@ -11,7 +11,8 @@ const distilleriesReducer = (state = {}, action) => {
         case RECIEVE_DISTILLERIES:
             return action.distilleries;
         case RECEIVE_DISTILLERY:
-            return action.distillery;
+            nextState[action.distillery.id] = action.distillery;
+            return nextState;
         default:
             return state;
     }

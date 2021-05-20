@@ -20,7 +20,7 @@ const sessionReducer = (state = _nullSession, action) => {
             nextState.id = null;
             return nextState;
         default:
-            return state;
+            return nextState;
     }
 }
 

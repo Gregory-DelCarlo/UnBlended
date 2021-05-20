@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import DrinkIndex from './drinks_index';
+import DrinksIndex from './drinks_index';
 import { getDrinks } from '../../actions/whiskey_actions';
 import { getDistilleries } from '../../actions/distillery_actions';
 
@@ -15,4 +15,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(DrinkIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(DrinksIndex);

@@ -5,8 +5,10 @@ class Review < ApplicationRecord
     def self.filtered(type, id)
         if type == 'Drink'
             Review.where(whiskey_id: id)
-        elsif type == 'Feed'
+        elsif type == 'Friends'
             Review.where(user_id: id)
+        elsif type == 'All'
+            Review.all()
         end
     end
 
