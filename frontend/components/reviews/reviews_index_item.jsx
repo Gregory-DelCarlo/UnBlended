@@ -60,15 +60,10 @@ export default class ReviewsIndexItem extends React.Component {
         let rDate = rFullDate[0].split('-');
         let rTime = rFullDate[1].split(':');
         let reviewDate = new Date(
-                                  rDate[0],
-                                  rDate[1]-1,
-                                  rDate[2],
-                                  rTime[0],
-                                  rTime[1], 
-                                  rTime[2].slice(0, -1)
-                                  ).toString().split(' ');
+            `${rDate[0]} ${rDate[1]} ${rDate[2]}, ${rTime[0]}:${rTime[1]}:${rTime[2].slice(0,-1)} UTC`
+        ).toString().split(' ');
         let currentDate = new Date().toString().split(' ');
-        
+        debugger
         // date format
         // ["Tue", "May", "18", "2021", "22:37:22", "GMT-0700", "(Pacific", "Daylight", "Time)"]
 
@@ -78,7 +73,7 @@ export default class ReviewsIndexItem extends React.Component {
                 let cHours = cTimeStamp[0];
                 
                 let rTimeStamp = reviewDate[4].split(':');
-                let rHours = rTimeStamp[0]
+                let rHours = rTimeStamp[0];
                 if(cHours === rHours) {
                     let cMin = cTimeStamp[1];
                     let rMin = rTimeStamp[1];
@@ -99,7 +94,7 @@ export default class ReviewsIndexItem extends React.Component {
                     )
                 }
             } else if (currentDate[2] !== reviewDate[2]) {
-                let dayDiff = currentDate[2] = reviewDate[2];
+                let dayDiff = currentDate[2] - reviewDate[2];
                 return (
                     <span id='time'>{dayDiff} day{this.checkS(dayDiff)} ago</span>
                 )
