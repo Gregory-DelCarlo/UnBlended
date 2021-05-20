@@ -95,3 +95,26 @@
     width: 0;
     pointer-events: none;
 }
+
+.review-footer {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    #time, #detailed, #delete {
+        display: inline-block;
+        text-decoration: none;
+        background: none;
+        border: none;
+        margin: 0 12px 16px 0;
+        font-size: .8em;
+    }
+
+    #time {
+        color: #595959;
+    }
+
+    #detailed, #delete {
+        color: #8a4500;
+    }
+}

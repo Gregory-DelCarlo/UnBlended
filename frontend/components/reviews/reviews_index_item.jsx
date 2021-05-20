@@ -17,6 +17,7 @@ export default class ReviewsIndexItem extends React.Component {
         this.checkModalClose = this.checkModalClose.bind(this);
         this.getTime = this.getTime.bind(this);
         this.checkS = this.checkS.bind(this);
+        this.checkLocation = this.checkLocation.bind(this);
 
         this.state = {
             isOpen: false
@@ -148,9 +149,20 @@ export default class ReviewsIndexItem extends React.Component {
 
         if(currentUser === review.user) {
             return(
-                <span id='delete'> <button onClick={this.openModal}>Delete Check-in</button> </span>
+                <button id='delete' onClick={this.openModal}>Delete Check-in</button>
             )
         }
+    }
+
+    checkLocation() {
+        if (this.props.review.location) {
+            return (
+                <>
+                at 
+                <span id='location'> {this.props.review.location} </span>
+                </>
+            )
+        };
     }
 
     render() {
@@ -165,8 +177,7 @@ export default class ReviewsIndexItem extends React.Component {
                         <Link to={`/drinks/${whiskey.id}`}> {whiskey.name} </Link>
                         by 
                         <span id='distillery'> {distillery.name} </span>
-                        at 
-                        <span id='location'> {review.location} </span>
+                        {this.checkLocation()}
                     </div>
                     <Link to={`/drinks/${whiskey.id}`}>
                         <img src={whiskey.photo} alt='whiskey img' />
