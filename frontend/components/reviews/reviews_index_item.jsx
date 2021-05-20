@@ -63,7 +63,6 @@ export default class ReviewsIndexItem extends React.Component {
             `${rDate[0]} ${rDate[1]} ${rDate[2]}, ${rTime[0]}:${rTime[1]}:${rTime[2].slice(0,-1)} UTC`
         ).toString().split(' ');
         let currentDate = new Date().toString().split(' ');
-        debugger
         // date format
         // ["Tue", "May", "18", "2021", "22:37:22", "GMT-0700", "(Pacific", "Daylight", "Time)"]
 
