@@ -23,7 +23,6 @@
     padding-bottom: 24px;
     margin-bottom: 24px;
     border-bottom: 1px solid #e5e5e5;
-
 }
 
 .review-head {
@@ -116,5 +115,30 @@
 
     #detailed, #delete {
         color: #8a4500;
+    }
+}
+
+
+.content-box {
+
+    #disclaim {
+        strong {
+            font-weight: 600;
+        }
+    }
+
+    #delete {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button {
+            font-size: 100%;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            background: none;
+            margin-top: 15px;
+            color: #8a4500;
+        }
     }
 }

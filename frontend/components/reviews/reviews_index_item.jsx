@@ -132,12 +132,20 @@ export default class ReviewsIndexItem extends React.Component {
         return (
             <div className={isOpen ? 'open' : 'closed'} onClick={this.checkModalClose}>
                 <div className='modal'>
-                    <div className='modal-delete-box'>
-                        <div id='title'>Confirm Check-In Deletion</div>
-                        <div id='disclaim'><span>Warning </span>
-                        - Are you sure you want to delete this check-in? 
-                        This cannot be undone.</div>
-                        <div id='delete'><button onClick={this.handleDelete}>Confirm Deletion</button></div>
+                    <div className='modal-box'>
+                        <div className='title'>
+                            <h3>Confirm Check-In Deletion</h3>
+                            <span className='exit-modal' onClick={this.closeModal}>
+                                    <div id='x1'/>
+                                    <div id='x2'/>
+                            </span>
+                        </div>
+                        <div className='content-box'>
+                            <div id='disclaim'><strong>Warning </strong>
+                            - Are you sure you want to delete this check-in? 
+                            This cannot be undone.</div>
+                            <div id='delete'><button onClick={this.handleDelete}>Confirm Deletion</button></div>
+                        </div>
                     </div>
                 </div>
             </div>

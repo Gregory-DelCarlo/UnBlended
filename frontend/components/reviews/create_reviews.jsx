@@ -138,8 +138,12 @@ export default class CreateReviewss extends React.Component {
                     <div className = 'modal-box'>
                         <div className='title'>
                             <h3>Check-In</h3>
+                            <span className='exit-modal' onClick={this.props.closeModal}>
+                                <div id='x1'/>
+                                <div id='x2'/>
+                            </span>
                         </div>
-                        <div className='reviews-box'>
+                        <div className='content-box'>
                             {this.reviewForm()}
                         </div>
                     </div>
