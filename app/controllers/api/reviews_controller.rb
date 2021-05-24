@@ -40,6 +40,10 @@ class Api::ReviewsController < ApplicationController
         end
     end
 
+    def ratings
+        Review.get_drink_ratings(params[:id])
+    end
+
     private
 
     def review_params

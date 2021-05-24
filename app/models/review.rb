@@ -12,6 +12,10 @@ class Review < ApplicationRecord
         end
     end
 
+    def self.get_drink_ratings(id)
+        Review.where(whiskey_id: id).pluck(:rating)
+    end
+
     belongs_to :whiskey,
         primary_key: :id,
         foreign_key: :whiskey_id,
