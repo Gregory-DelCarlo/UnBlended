@@ -5,9 +5,9 @@ export default class ReviewsIndexItem extends React.Component {
     constructor(props) {
         super(props);
         
-        this.props.getDrink(this.props.review.whiskey);
-        this.props.getUser(this.props.review.user);
-        this.props.getDistillery(this.props.whiskey.distillery);
+        // this.props.getDrink(this.props.review.whiskey);
+        // this.props.getUser(this.props.review.user);
+        // this.props.getDistillery(this.props.whiskey.distillery);
 
         this.handleDelete = this.handleDelete.bind(this);
         this.confirmDelete = this.confirmDelete.bind(this);
@@ -174,7 +174,7 @@ export default class ReviewsIndexItem extends React.Component {
     }
 
     render() {
-        const {review, whiskey, user, distillery} = this.props;
+        const {review, drink, user, distillery} = this.props;
         return (
             <div className='reviews-index' >
                 {this.confirmDelete()}
@@ -182,13 +182,13 @@ export default class ReviewsIndexItem extends React.Component {
                     <div className='review-title'>
                         <Link to=''>{user.username} </Link>
                         is drinking a
-                        <Link to={`/drinks/${whiskey.id}`}> {whiskey.name} </Link>
+                        <Link to={`/drinks/${drink.id}`}> {drink.name} </Link>
                         by 
                         <span id='distillery'> {distillery.name} </span>
                         {this.checkLocation()}
                     </div>
-                    <Link to={`/drinks/${whiskey.id}`}>
-                        <img src={whiskey.photo} alt='whiskey img' />
+                    <Link to={`/drinks/${drink.id}`}>
+                        <img src={drink.photo} alt='drink img' />
                     </Link>
                 </div>
                 <div className='review-details'>

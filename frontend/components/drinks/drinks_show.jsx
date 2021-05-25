@@ -102,7 +102,11 @@ export default class DrinksShow extends React.Component {
                             <button className='button' onClick={this.props.deleteDrink}>Delete Drink</button>
                         </div>
                     </div>
-                    <ReviewsIndexContainer id={this.getDrinkId}/>
+                    <ReviewsIndexContainer 
+                        id={this.getDrinkId}
+                        distillery={distillery}
+                        drink={drink}
+                    />
                 </div>
             )
         }

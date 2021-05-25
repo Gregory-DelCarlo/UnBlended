@@ -8,17 +8,17 @@ import { destroyReview } from '../../actions/review_actions';
 const mapStateToProps = (state, ownProps) => {{
     const whiskey = state.entities.whiskey[ownProps.review.whiskey];
     return ({
-        whiskey:  whiskey ? whiskey : '',
-        distillery: state.entities.distilleries[whiskey.distillery] ? state.entities.distilleries[whiskey.distillery] : '',
-        user: state.entities.users[ownProps.review.user] ? state.entities.users[ownProps.review.user] : '',
+        // whiskey:  whiskey ? whiskey : '',
+        // distillery: state.entities.distilleries[whiskey.distillery] ? state.entities.distilleries[whiskey.distillery] : '',
+        // user: state.entities.users[ownProps.review.user] ? state.entities.users[ownProps.review.user] : '',
         currentUser: state.session.id
     });
 }};
 
 const mapDispatchToProps = dispatch => ({
-    getDrink: drinkId => dispatch(getDrink(drinkId)),
-    getUser: userId => dispatch(getUser(userId)),
-    getDistillery: distId => dispatch(getDistillery(distId)),
+    // getDrink: drinkId => dispatch(getDrink(drinkId)),
+    // getUser: userId => dispatch(getUser(userId)),
+    // getDistillery: distId => dispatch(getDistillery(distId)),
     deleteReview: (reviewId, userId) => dispatch(destroyReview(reviewId, userId))
 });
 
