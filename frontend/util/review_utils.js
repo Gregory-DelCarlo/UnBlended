@@ -36,3 +36,11 @@ export const deleteReview = (reviewId, userId) => (
         data: {userId}
     })
 );
+
+export const fetchRatings = id => (
+    $.ajax({
+        url: 'api/ratings',
+        method: 'GET',
+        data: {id}
+    })
+)

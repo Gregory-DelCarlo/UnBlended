@@ -3,13 +3,15 @@ import usersReducer from './users_reducer';
 import whiskeysReducer from './whiskeys_reducer';
 import distilleriesReducer from './distilleries_reducer';
 import reviewsReducer from './reviews_reducer';
+import ratingsReducer from './ratings_reducer';
 
 
 const entitiesReducer = combineReducers({
     users: usersReducer,
     whiskey: whiskeysReducer,
     distilleries: distilleriesReducer,
-    reviews: reviewsReducer
+    reviews: reviewsReducer,
+    ratings: ratingsReducer
 });
 
 export default entitiesReducer;
