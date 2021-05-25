@@ -54,10 +54,14 @@ export default class DrinksShow extends React.Component {
     }
 
     getRatingAverage() {
-        let sum = this.props.ratings.reduce((a,b) => (a + b), 0);
-        let avg = sum / this.props.ratings.length;
-
-        return avg.toFixed(2);
+        if(this.props.ratings.length !== 0){
+            let sum = this.props.ratings.reduce((a,b) => (a + b), 0);
+            let avg = sum / this.props.ratings.length;
+    
+            return avg.toFixed(2);
+        } else {
+            return 0;
+        }
     }
 
     render() {
