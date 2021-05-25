@@ -7,22 +7,24 @@ import CreateReviewsContainer from '../reviews/create_reviews_container';
 export default class DrinksShow extends React.Component {
     constructor(props) {
         super(props);
-
-
         this.state = {
             isOpen: false,
             readMore: false
-        }
-
-        this.props.requestDrink();
-        if (this.props.drink) {
-            this.props.getDistillery(this.props.drink.distillery);
         }
 
         this.getDrinkId = this.getDrinkId.bind(this);
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.toggleDescLength = this.toggleDescLength.bind(this);
+        this.getRatingAverage = this.getRatingAverage.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.requestDrink()
+            .then(() => {
+                this.props.getDistillery(this.props.drink.distillery);
+                this.props.getRatings(this.props.drink.id);
+            })
     }
 
     getDrinkId() {
@@ -50,10 +52,15 @@ export default class DrinksShow extends React.Component {
         }
     }
 
+    getRatingAverage() {
+        let sum = this.props.ratings.reduce((a,b) => (a + b), 0);
+        return sum / this.props.ratings.length;
+    }
+
     render() {
-        const { drink, distillery } = this.props;
+        const { drink, distillery, ratings } = this.props;
         const { isOpen, readMore } = this.state;
-        if (drink ) {
+        if (drink) {
             return(
                 <div className='page'>
                     <Navbar />
@@ -65,15 +72,14 @@ export default class DrinksShow extends React.Component {
                                 <div>
                                     <p id='name'>{drink.name}</p><br/>
                                     <p id='distillery'>{distillery.name} </p><br/>
-                                    {/* add when distillery api is set up  */}
                                     <p>{drink.type}</p>
                                 </div>
                             </div>
                             <div id='info'>
                                 <p>{drink.abv}% ABV</p>
                                 <p>{drink.proof} Proof</p>
-                                <p>rating %</p>
-                                <p> total ratings </p>
+                                <p>{this.getRatingAverage()} stars</p>
+                                <p>{ratings.length} ratings</p>
                             </div>
                             <div id='bottom'>
                                 <div id='description'>
