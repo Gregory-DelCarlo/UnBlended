@@ -38,6 +38,7 @@ export default class DrinksShow extends React.Component {
 
     closeModal() {
         this.setState({isOpen: false});
+        this.props.getRatings(this.props.drink.id);
     }
 
     toggleDescLength() {
@@ -54,7 +55,9 @@ export default class DrinksShow extends React.Component {
 
     getRatingAverage() {
         let sum = this.props.ratings.reduce((a,b) => (a + b), 0);
-        return sum / this.props.ratings.length;
+        let avg = sum / this.props.ratings.length;
+
+        return avg.toFixed(2);
     }
 
     render() {
@@ -106,6 +109,7 @@ export default class DrinksShow extends React.Component {
                         id={this.getDrinkId}
                         distillery={distillery}
                         drink={drink}
+                        updateReviews={this.props.getRatings}
                     />
                 </div>
             )

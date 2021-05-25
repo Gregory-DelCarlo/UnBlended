@@ -8,6 +8,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     submitReview: review => dispatch(newReview(review))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateReviews);

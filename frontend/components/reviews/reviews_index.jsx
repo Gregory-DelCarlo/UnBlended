@@ -19,6 +19,7 @@ export default class ReviewsIndex extends React.Component {
                 distillery={distillery}
                 drink={drink}
                 user={users[review.user]}
+                updateReviews={this.props.updateReviews}
             />
         ));
     }
