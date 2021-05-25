@@ -41,7 +41,7 @@ class Api::ReviewsController < ApplicationController
     end
 
     def ratings
-        Review.get_drink_ratings(params[:id])
+        render json: Review.get_drink_ratings(params[:id]) 
     end
 
     private
