@@ -4,8 +4,8 @@ import { getDrinks } from '../../actions/whiskey_actions';
 import { getDistilleries } from '../../actions/distillery_actions';
 
 const mapStateToProps = (state) => ({
-    drinks: state.entities.whiskey,
-    distilleries: state.entities.distilleries
+    drinks: Object.values(state.entities.whiskey).length !== 0 ? state.entities.whiskey : null,
+    distilleries: Object.values(state.entities.distilleries).length !== 0 ? state.entities.distilleries : null
 });
 
 const mapDispatchToProps = (dispatch) => ({

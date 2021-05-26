@@ -273,6 +273,7 @@ distilleries = [
 
 whiskeys = [
     {
+        id: 1,
         name: 'Jim Beam Kentucky Straight Bourbon Whiskey',
         type: 'Bourbon',
         abv: 40.0,
@@ -281,6 +282,7 @@ whiskeys = [
         distillery_id: 1,
     },
     { 
+        id: 2,
         name: 'Jim Beam Double Oak',
         type: 'Bourbon',
         abv: 43.0,
@@ -289,6 +291,7 @@ whiskeys = [
         distillery_id: 1
     },
     { 
+        id: 3,
         name: 'Jim Beam Pre-Prohibition Kentucky Straight Rye Whiskey',
         type: 'Rye',
         abv: 45.0,
@@ -297,6 +300,7 @@ whiskeys = [
         distillery_id: 1
     },
     { 
+        id: 4,
         name: "Jim Beam Devil's Cut",
         type: 'Bourbon',
         abv: 45.0,
@@ -305,6 +309,7 @@ whiskeys = [
         distillery_id: 1
     },
     { 
+        id: 5,
         name: 'Jim Beam Single Barrel',
         type: 'Bourbon',
         abv: 47.5,
@@ -313,6 +318,7 @@ whiskeys = [
         distillery_id: 1
     },
     { 
+        id: 6,
         name: 'Jim Beam Black Extra-Aged',
         type: 'Bourbon',
         abv: 43.0,
@@ -321,6 +327,7 @@ whiskeys = [
         distillery_id: 1
     },
     { 
+        id: 7,
         name: 'Jim Beam Old Tub',
         type: 'Bourbon',
         abv: 50.0,
@@ -329,6 +336,7 @@ whiskeys = [
         distillery_id: 1
     },
     { 
+        id: 8,
         name: 'Jim Beam Repeal Batch',
         type: 'Bourbon',
         abv: 43.0,
@@ -337,6 +345,7 @@ whiskeys = [
         distillery_id: 1
     },
     { 
+        id: 9,
         name: 'Woodford Reserve Kentucky Straight Bourbon Whiskey',
         type: 'Bourbon',
         abv: 45.2,
@@ -345,6 +354,7 @@ whiskeys = [
         distillery_id: 2
     },
     { 
+        id: 10,
         name: 'Woodford Reserve Double Oaked',
         type: 'Bourbon',
         abv: 45.2,
@@ -353,6 +363,7 @@ whiskeys = [
         distillery_id: 2
     },
     { 
+        id: 11,
         name: 'Woodford Reserve Malt Whiskey',
         type: 'Malt Whiskey',
         abv: 45.2,
@@ -361,6 +372,7 @@ whiskeys = [
         distillery_id: 2
     },
     { 
+        id: 12,
         name: 'Woodford Reserve Rye Whiskey',
         type: 'Rye Whiskey',
         abv: 45.2,
@@ -369,6 +381,7 @@ whiskeys = [
         distillery_id: 2
     },
     { 
+        id: 13,
         name: 'Woodford Reserve Wheat Whiskey',
         type: 'Bourbon',
         abv: 45.2,
@@ -377,6 +390,7 @@ whiskeys = [
         distillery_id: 2
     },
     { 
+        id: 14,
         name: 'Woodford Reserve Baccarat Edition',
         type: 'Bourbon',
         abv: 45.2,
@@ -385,6 +399,7 @@ whiskeys = [
         distillery_id: 2
     },
     { 
+        id: 15,
         name: "Woodford Reserve Master's Collection",
         type: 'Bourbon',
         abv: 45.2,
@@ -397,6 +412,7 @@ whiskeys = [
         distillery_id: 2
     },
     { 
+        id: 16,
         name: 'Buffalo Trace Bourbon',
         type: 'Bourbon',
         abv: 45.0,
@@ -405,6 +421,7 @@ whiskeys = [
         distillery_id: 3
     },
     { 
+        id: 17,
         name: 'High West American Prairie Bourbon',
         type: 'Bourbon',
         abv: 46.0,
