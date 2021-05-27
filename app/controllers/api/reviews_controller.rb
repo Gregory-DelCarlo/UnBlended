@@ -40,10 +40,10 @@ class Api::ReviewsController < ApplicationController
         end
     end
 
-    def single_drink_ratings
-        @ratings = Review.get_drink_ratings(params[:id]) 
+    def single_drink_rating
+        @rating = Review.get_drink_rating(params[:id]) 
         @id = params[:id]
-        render :single_drink_ratings
+        render :single_drink_rating
     end
 
     def all_drink_ratings
@@ -51,8 +51,9 @@ class Api::ReviewsController < ApplicationController
         @ratings = []
         
         drinks.each do |drink|
-            drink_ratings = Review.get_drink_ratings(drink.id)
-            @ratings << {id: drink.id, ratings: drink_ratings}
+            drink_rating = Review.get_drink_rating(drink.id)
+            
+            @ratings << {id: drink.id, rating: drink_rating}
         end
 
         render :all_drink_ratings

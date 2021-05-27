@@ -12,8 +12,14 @@ class Review < ApplicationRecord
         end
     end
 
-    def self.get_drink_ratings(id)
-        Review.where(whiskey_id: id).pluck(:rating)
+    def self.get_drink_rating(id)
+        ratings = Review.where(whiskey_id: id).pluck(:rating)
+        if ratings.length != 0
+            avg = ratings.sum / ratings.length
+            avg.round(2)
+        else
+            0
+        end
     end
 
     belongs_to :whiskey,
