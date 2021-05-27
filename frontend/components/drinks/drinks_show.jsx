@@ -114,6 +114,7 @@ export default class DrinksShow extends React.Component {
                         distillery={distillery}
                         drink={drink}
                         updateReviews={this.props.getRatings}
+                        type='Drink'
                     />
                 </div>
             )

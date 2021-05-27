@@ -25,15 +25,25 @@ export default class DrinksIndex extends React.Component {
 
     selectList(listType) {
         if (listType === 'drinks') {
-            return Object.values(this.props.drinks).map( drink => (
-                <DrinksIndexItem
-                    key={drink.id}
-                    item={drink}
-                    type={listType}
-                    distillery={this.props.distilleries[drink.distillery].name}
-                    rating={this.props.ratings[drink.id]}
-                />
-                ));
+            const {distilleries, ratings, drinks} = this.props;
+            if(Object.values(ratings).length > 1) {
+                return Object.values(drinks).map( drink => {
+                    let rating = 0;
+                    if (Object.values(ratings).length !== 0) {
+                        ratings[drink.id].avg ? 
+                            rating = ratings[drink.id].avg : rating = ratings[drink.id];
+                    } else {
+                        rating = 0;
+                    }
+                    return (<DrinksIndexItem
+                        key={drink.id}
+                        item={drink}
+                        type={listType}
+                        distillery={distilleries[drink.distillery].name}
+                        rating={rating}
+                    />)
+                });
+            }
         } else if (listType === 'distilleries') {
             return Object.values(this.props.distilleries).map( distillery => (
                 <DrinksIndexItem
