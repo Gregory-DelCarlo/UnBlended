@@ -9,6 +9,7 @@ export default class DrinksIndex extends React.Component {
         super(props);
         this.props.getDrinks();
         this.props.getDistilleries();
+        this.props.getRatings();
         this.selectList = this.selectList.bind(this);
         this.handleListChange = this.handleListChange.bind(this);
         this.state = {
@@ -30,6 +31,7 @@ export default class DrinksIndex extends React.Component {
                     item={drink}
                     type={listType}
                     distillery={this.props.distilleries[drink.distillery].name}
+                    rating={this.props.ratings[drink.id]}
                 />
                 ));
         } else if (listType === 'distilleries') {

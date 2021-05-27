@@ -32,7 +32,7 @@ export default class DrinksIndexItem extends React.Component {
     }
 
     selectInfo() {
-        const {item} = this.props;
+        const {item, rating} = this.props;
         if (this.props.type === 'drinks') {
             return (<div className='drink-info'>
                         <div className='drink-percents'>
@@ -40,7 +40,7 @@ export default class DrinksIndexItem extends React.Component {
                             <p id='proof'>{item.proof} proof</p>
                         </div><br/>
                         <div className='drink-rating'> 
-                            <p id='rating'>Rating</p>
+                            <p id='rating'>{rating} stars</p>
                         </div>
                     </div>)
         } else if (this.props.type === 'distilleries') {
