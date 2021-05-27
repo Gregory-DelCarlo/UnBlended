@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     resources :distilleries, only: [:index, :show]
     resources :reviews, only: [:index, :show, :create, :destroy, :update]
 
-    get '/ratings', :to => 'reviews#ratings'
+    get '/single_drink_ratings', :to => 'reviews#single_drink_ratings'
+    get '/all_drink_ratings', :to => 'reviews#all_drink_ratings'
     
   end
 end

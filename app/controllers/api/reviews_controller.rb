@@ -40,8 +40,22 @@ class Api::ReviewsController < ApplicationController
         end
     end
 
-    def ratings
-        render json: Review.get_drink_ratings(params[:id]) 
+    def single_drink_ratings
+        @ratings = Review.get_drink_ratings(params[:id]) 
+        @id = params[:id]
+        render :single_drink_ratings
+    end
+
+    def all_drink_ratings
+        drinks = Whiskey.all
+        @ratings = []
+        
+        drinks.each do |drink|
+            drink_ratings = Review.get_drink_ratings(drink.id)
+            @ratings << {id: drink.id, ratings: drink_ratings}
+        end
+
+        render :all_drink_ratings
     end
 
     private
