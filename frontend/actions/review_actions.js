@@ -1,5 +1,7 @@
 import {
-    fetchReviews, fetchReview, createReview, updateReview, deleteReview, fetchRatings
+    fetchReviews, fetchReview, createReview, 
+    updateReview, deleteReview, fetchSingleRatings,
+    fetchAllRatings
 } from '../util/review_utils';
 
 
@@ -35,7 +37,7 @@ const removeReview = reviewId => ({
 const receiveRatings = ratings => ({
     type: RECEIVE_RATINGS,
     ratings
-})
+});
 
 
 //----------------------ACTION THUNK CREATORS-----------------
@@ -67,7 +69,12 @@ export const destroyReview = (reviewId, userId) => dispatch => (
         .then(review => dispatch(removeReview(review.id)))
 );
 
-export const getRatings = id => dispatch => (
-    fetchRatings(id)
+export const getSingleRatings = id => dispatch => (
+    fetchSingleRatings(id)
+        .then(ratings => dispatch(receiveRatings(ratings)))
+);
+
+export const getAllRatings = () => dispatch => (
+    fetchAllRatings()
         .then(ratings => dispatch(receiveRatings(ratings)))
 );
