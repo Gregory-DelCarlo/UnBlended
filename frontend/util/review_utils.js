@@ -39,7 +39,7 @@ export const deleteReview = (reviewId, userId) => (
 
 export const fetchSingleRatings = id => (
     $.ajax({
-        url: 'api/single_drink_ratings',
+        url: 'api/single_drink_rating',
         method: 'GET',
         data: {id}
     })

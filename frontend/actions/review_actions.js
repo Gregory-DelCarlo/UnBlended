@@ -69,9 +69,9 @@ export const destroyReview = (reviewId, userId) => dispatch => (
         .then(review => dispatch(removeReview(review.id)))
 );
 
-export const getSingleRatings = id => dispatch => (
+export const getSingleRating = id => dispatch => (
     fetchSingleRatings(id)
-        .then(ratings => dispatch(receiveRatings(ratings)))
+        .then(rating => dispatch(receiveRatings(rating)))
 );
 
 export const getAllRatings = () => dispatch => (
