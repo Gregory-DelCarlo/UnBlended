@@ -16,14 +16,14 @@ export default class DrinksShow extends React.Component {
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.toggleDescLength = this.toggleDescLength.bind(this);
-        this.getRatingAverage = this.getRatingAverage.bind(this);
+        // this.getRatingAverage = this.getRatingAverage.bind(this);
     }
 
     componentDidMount() {
         this.props.requestDrink()
             .then(() => {
                 this.props.getDistillery(this.props.drink.distillery);
-                this.props.getRatings(this.props.drink.id);
+                this.props.getRating(this.props.drink.id);
             })
     }
 
@@ -53,19 +53,19 @@ export default class DrinksShow extends React.Component {
         }
     }
 
-    getRatingAverage() {
-        if(this.props.ratings.length !== 0){
-            let sum = this.props.ratings.reduce((a,b) => (a + b), 0);
-            let avg = sum / this.props.ratings.length;
+    // getRatingAverage() {
+    //     if(this.props.ratings.length !== 0){
+    //         let sum = this.props.ratings.reduce((a,b) => (a + b), 0);
+    //         let avg = sum / this.props.ratings.length;
     
-            return avg.toFixed(2);
-        } else {
-            return 0;
-        }
-    }
+    //         return avg.toFixed(2);
+    //     } else {
+    //         return 0;
+    //     }
+    // }
 
     render() {
-        const { drink, distillery, ratings } = this.props;
+        const { drink, distillery, rating } = this.props;
         const { isOpen, readMore } = this.state;
         if (drink) {
             return(
@@ -85,8 +85,8 @@ export default class DrinksShow extends React.Component {
                             <div id='info'>
                                 <p>{drink.abv}% ABV</p>
                                 <p>{drink.proof} Proof</p>
-                                <p>{this.getRatingAverage()} stars</p>
-                                <p>{ratings.length} ratings</p>
+                                <p>{rating.avg} stars</p>
+                                <p>{rating.total} ratings</p>
                             </div>
                             <div id='bottom'>
                                 <div id='description'>
