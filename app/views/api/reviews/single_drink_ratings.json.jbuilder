@@ -1,3 +1,3 @@
 json.set! @id do
-    json.ratings = @ratings
+    json.array! @ratings
 end
