@@ -125,7 +125,9 @@ export default class ReviewsIndexItem extends React.Component {
     handleDelete() {
         this.props.deleteReview(this.props.review.id, this.props.currentUser)
             .then(() => {
-                this.props.updateReviews(this.props.drink.id);
+                if(this.props.type === 'Drink'){
+                    this.props.updateReviews(this.props.drink.id);
+                }
             });
     }
 
