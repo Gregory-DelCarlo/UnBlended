@@ -38,7 +38,7 @@ export default class DrinksShow extends React.Component {
 
     closeModal() {
         this.setState({isOpen: false});
-        this.props.getRatings(this.props.drink.id);
+        this.props.getRating(this.props.drink.id);
     }
 
     toggleDescLength() {
@@ -113,7 +113,7 @@ export default class DrinksShow extends React.Component {
                         id={this.getDrinkId}
                         distillery={distillery}
                         drink={drink}
-                        updateReviews={this.props.getRatings}
+                        updateReviews={this.props.getRating}
                         type='Drink'
                     />
                 </div>
