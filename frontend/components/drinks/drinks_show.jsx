@@ -8,15 +8,20 @@ export default class DrinksShow extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOpen: false,
+            isCreateOpen: false,
+            isDeleteOpen: false,
             readMore: false
         }
 
         this.getDrinkId = this.getDrinkId.bind(this);
-        this.openModal = this.openModal.bind(this);
-        this.closeModal = this.closeModal.bind(this);
+        this.openCreateModal = this.openCreateModal.bind(this);
+        this.closeCreateModal = this.closeCreateModal.bind(this);
+        this.openDeleteModal = this.openDeleteModal.bind(this);
+        this.closeDeleteModal = this.closeDeleteModal.bind(this);
+        this.checkDeleteModalClose = this.checkDeleteModalClose.bind(this);
         this.toggleDescLength = this.toggleDescLength.bind(this);
-        // this.getRatingAverage = this.getRatingAverage.bind(this);
+        this.confirmDrinkDelete = this.confirmDrinkDelete.bind(this);
+        this.handleDrinkDelete = this.handleDrinkDelete.bind(this);
     }
 
     componentDidMount() {
@@ -32,12 +37,26 @@ export default class DrinksShow extends React.Component {
         return url.split('/')[2];
     }
 
-    openModal() {
-        this.setState({isOpen: true});
+    openDeleteModal() {
+        this.setState({isDeleteOpen: true});
     }
 
-    closeModal() {
-        this.setState({isOpen: false});
+    closeDeleteModal() {
+        this.setState({isDeleteOpen: false});
+    }
+
+    checkDeleteModalClose(e) {
+        if(e.target.className == 'modal') {
+            this.closeDeleteModal();
+        }
+    }
+
+    openCreateModal() {
+        this.setState({isCreateOpen: true});
+    }
+
+    closeCreateModal() {
+        this.setState({isCreateOpen: false});
         this.props.getRating(this.props.drink.id);
     }
 
@@ -53,25 +72,48 @@ export default class DrinksShow extends React.Component {
         }
     }
 
-    // getRatingAverage() {
-    //     if(this.props.ratings.length !== 0){
-    //         let sum = this.props.ratings.reduce((a,b) => (a + b), 0);
-    //         let avg = sum / this.props.ratings.length;
-    
-    //         return avg.toFixed(2);
-    //     } else {
-    //         return 0;
-    //     }
-    // }
+    handleDrinkDelete() {
+        this.props.deleteDrink()
+            .then(() => {
+                this.props.history.push('/drinks/');
+            })
+    }
+
+    confirmDrinkDelete() {
+        const {isDeleteOpen} = this.state;
+        
+        return (
+            <div className={isDeleteOpen ? 'open' : 'closed'} onClick={this.checkDeleteModalClose}>
+                <div className='modal'>
+                    <div className='modal-box'>
+                        <div className='title'>
+                            <h3>Confirm Drink Deletion</h3>
+                            <span className='exit-modal' onClick={this.closeDeleteModal}>
+                                    <div id='x1'/>
+                                    <div id='x2'/>
+                            </span>
+                        </div>
+                        <div className='content-box'>
+                            <div id='disclaim'><strong>Warning </strong>
+                            - Are you sure you want to delete this Drink? 
+                            This cannot be undone.</div>
+                            <div id='delete'><button onClick={this.handleDrinkDelete}>Confirm Deletion</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 
     render() {
         const { drink, distillery, rating } = this.props;
-        const { isOpen, readMore } = this.state;
+        const { isCreateOpen, readMore } = this.state;
         if (drink) {
             return(
                 <div className='page'>
                     <Navbar />
-                    <CreateReviewsContainer isOpen={isOpen} closeModal={this.closeModal} drink={drink.id}/>
+                    <CreateReviewsContainer isCreateOpen={isCreateOpen} closeCreateModal={this.closeCreateModal} drink={drink.id}/>
+                    {this.confirmDrinkDelete()}
                     <div className='drinks-show'>
                         <div className='full-drink'>
                             <div id='top'>
@@ -95,7 +137,7 @@ export default class DrinksShow extends React.Component {
                                     <button id='desc-button' onClick={this.toggleDescLength} >Show More</button>
                                 </div>
                                 <div className = 'user-drink-options'>
-                                    <button id='check-in' onClick={this.openModal} >
+                                    <button id='check-in' onClick={this.openCreateModal} >
                                         <span id="checkmark">
                                             <div id="checkmark_stem"></div>
                                             <div id="checkmark_kick"></div>
@@ -106,7 +148,7 @@ export default class DrinksShow extends React.Component {
                         </div><br />
                         <div className='sidebar'>
                             <Link to={`/drinks/${drink.id}/edit`} >Edit Drink</Link><br/>
-                            <button className='button' onClick={this.props.deleteDrink}>Delete Drink</button>
+                            <button className='button' onClick={this.openDeleteModal}>Delete Drink</button>
                         </div>
                     </div>
                     <ReviewsIndexContainer 

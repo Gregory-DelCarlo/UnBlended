@@ -28,7 +28,7 @@ export default class CreateReviewss extends React.Component {
         this.props.submitReview(this.state)
             .then( () => {
                 this.resetState()
-                this.props.closeModal()
+                this.props.closeCreateModal()
             });
     }
 
@@ -45,7 +45,7 @@ export default class CreateReviewss extends React.Component {
     checkResetState(e) {
         if(e.target.className == 'modal') {
             this.resetState();
-            this.props.closeModal();
+            this.props.closeCreateModal();
         }
     }
 
@@ -131,14 +131,14 @@ export default class CreateReviewss extends React.Component {
     }
 
     render () {
-        const {isOpen} = this.props;
+        const {isCreateOpen} = this.props;
         return (
-            <div className={isOpen ? 'open' : 'closed'} onClick={this.checkResetState}>
+            <div className={isCreateOpen ? 'open' : 'closed'} onClick={this.checkResetState}>
                 <div className='modal'>
                     <div className = 'modal-box'>
                         <div className='title'>
                             <h3>Check-In</h3>
-                            <span className='exit-modal' onClick={this.props.closeModal}>
+                            <span className='exit-modal' onClick={this.props.closeCreateModal}>
                                 <div id='x1'/>
                                 <div id='x2'/>
                             </span>
