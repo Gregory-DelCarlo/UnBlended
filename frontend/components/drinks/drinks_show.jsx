@@ -7,22 +7,24 @@ import CreateReviewsContainer from '../reviews/create_reviews_container';
 export default class DrinksShow extends React.Component {
     constructor(props) {
         super(props);
-
-
         this.state = {
             isOpen: false,
             readMore: false
-        }
-
-        this.props.requestDrink();
-        if (this.props.drink) {
-            this.props.getDistillery(this.props.drink.distillery);
         }
 
         this.getDrinkId = this.getDrinkId.bind(this);
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.toggleDescLength = this.toggleDescLength.bind(this);
+        // this.getRatingAverage = this.getRatingAverage.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.requestDrink()
+            .then(() => {
+                this.props.getDistillery(this.props.drink.distillery);
+                this.props.getRating(this.props.drink.id);
+            })
     }
 
     getDrinkId() {
@@ -36,6 +38,7 @@ export default class DrinksShow extends React.Component {
 
     closeModal() {
         this.setState({isOpen: false});
+        this.props.getRatings(this.props.drink.id);
     }
 
     toggleDescLength() {
@@ -50,10 +53,21 @@ export default class DrinksShow extends React.Component {
         }
     }
 
+    // getRatingAverage() {
+    //     if(this.props.ratings.length !== 0){
+    //         let sum = this.props.ratings.reduce((a,b) => (a + b), 0);
+    //         let avg = sum / this.props.ratings.length;
+    
+    //         return avg.toFixed(2);
+    //     } else {
+    //         return 0;
+    //     }
+    // }
+
     render() {
-        const { drink, distillery } = this.props;
+        const { drink, distillery, rating } = this.props;
         const { isOpen, readMore } = this.state;
-        if (drink ) {
+        if (drink) {
             return(
                 <div className='page'>
                     <Navbar />
@@ -65,15 +79,14 @@ export default class DrinksShow extends React.Component {
                                 <div>
                                     <p id='name'>{drink.name}</p><br/>
                                     <p id='distillery'>{distillery.name} </p><br/>
-                                    {/* add when distillery api is set up  */}
                                     <p>{drink.type}</p>
                                 </div>
                             </div>
                             <div id='info'>
                                 <p>{drink.abv}% ABV</p>
                                 <p>{drink.proof} Proof</p>
-                                <p>rating %</p>
-                                <p> total ratings </p>
+                                <p>{rating.avg} stars</p>
+                                <p>{rating.total} ratings</p>
                             </div>
                             <div id='bottom'>
                                 <div id='description'>
@@ -96,7 +109,13 @@ export default class DrinksShow extends React.Component {
                             <button className='button' onClick={this.props.deleteDrink}>Delete Drink</button>
                         </div>
                     </div>
-                    <ReviewsIndexContainer id={this.getDrinkId}/>
+                    <ReviewsIndexContainer 
+                        id={this.getDrinkId}
+                        distillery={distillery}
+                        drink={drink}
+                        updateReviews={this.props.getRatings}
+                        type='Drink'
+                    />
                 </div>
             )
         }

@@ -7,5 +7,9 @@ Rails.application.routes.draw do
     resources :whiskeys, only: [:create, :index, :show, :update, :destroy]
     resources :distilleries, only: [:index, :show]
     resources :reviews, only: [:index, :show, :create, :destroy, :update]
+
+    get '/single_drink_rating', :to => 'reviews#single_drink_rating'
+    get '/all_drink_ratings', :to => 'reviews#all_drink_ratings'
+    
   end
 end

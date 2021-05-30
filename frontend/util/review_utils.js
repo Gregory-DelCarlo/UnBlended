@@ -36,3 +36,18 @@ export const deleteReview = (reviewId, userId) => (
         data: {userId}
     })
 );
+
+export const fetchSingleRatings = id => (
+    $.ajax({
+        url: 'api/single_drink_rating',
+        method: 'GET',
+        data: {id}
+    })
+);
+
+export const fetchAllRatings = () => (
+    $.ajax({
+        url: 'api/all_drink_ratings',
+        method: 'GET',
+    })
+);

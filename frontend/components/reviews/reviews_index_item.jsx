@@ -5,9 +5,9 @@ export default class ReviewsIndexItem extends React.Component {
     constructor(props) {
         super(props);
         
-        this.props.getDrink(this.props.review.whiskey);
-        this.props.getUser(this.props.review.user);
-        this.props.getDistillery(this.props.whiskey.distillery);
+        // this.props.getDrink(this.props.review.whiskey);
+        // this.props.getUser(this.props.review.user);
+        // this.props.getDistillery(this.props.whiskey.distillery);
 
         this.handleDelete = this.handleDelete.bind(this);
         this.confirmDelete = this.confirmDelete.bind(this);
@@ -124,6 +124,11 @@ export default class ReviewsIndexItem extends React.Component {
 
     handleDelete() {
         this.props.deleteReview(this.props.review.id, this.props.currentUser)
+            .then(() => {
+                if(this.props.type === 'Drink'){
+                    this.props.updateReviews(this.props.drink.id);
+                }
+            });
     }
 
     confirmDelete() {
@@ -132,12 +137,20 @@ export default class ReviewsIndexItem extends React.Component {
         return (
             <div className={isOpen ? 'open' : 'closed'} onClick={this.checkModalClose}>
                 <div className='modal'>
-                    <div className='modal-delete-box'>
-                        <div id='title'>Confirm Check-In Deletion</div>
-                        <div id='disclaim'><span>Warning </span>
-                        - Are you sure you want to delete this check-in? 
-                        This cannot be undone.</div>
-                        <div id='delete'><button onClick={this.handleDelete}>Confirm Deletion</button></div>
+                    <div className='modal-box'>
+                        <div className='title'>
+                            <h3>Confirm Check-In Deletion</h3>
+                            <span className='exit-modal' onClick={this.closeModal}>
+                                    <div id='x1'/>
+                                    <div id='x2'/>
+                            </span>
+                        </div>
+                        <div className='content-box'>
+                            <div id='disclaim'><strong>Warning </strong>
+                            - Are you sure you want to delete this check-in? 
+                            This cannot be undone.</div>
+                            <div id='delete'><button onClick={this.handleDelete}>Confirm Deletion</button></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -166,7 +179,7 @@ export default class ReviewsIndexItem extends React.Component {
     }
 
     render() {
-        const {review, whiskey, user, distillery} = this.props;
+        const {review, drink, user, distillery} = this.props;
         return (
             <div className='reviews-index' >
                 {this.confirmDelete()}
@@ -174,13 +187,13 @@ export default class ReviewsIndexItem extends React.Component {
                     <div className='review-title'>
                         <Link to=''>{user.username} </Link>
                         is drinking a
-                        <Link to={`/drinks/${whiskey.id}`}> {whiskey.name} </Link>
+                        <Link to={`/drinks/${drink.id}`}> {drink.name} </Link>
                         by 
                         <span id='distillery'> {distillery.name} </span>
                         {this.checkLocation()}
                     </div>
-                    <Link to={`/drinks/${whiskey.id}`}>
-                        <img src={whiskey.photo} alt='whiskey img' />
+                    <Link to={`/drinks/${drink.id}`}>
+                        <img src={drink.photo} alt='drink img' />
                     </Link>
                 </div>
                 <div className='review-details'>

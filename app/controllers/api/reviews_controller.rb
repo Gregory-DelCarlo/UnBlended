@@ -40,7 +40,36 @@ class Api::ReviewsController < ApplicationController
         end
     end
 
+    def single_drink_rating
+        @ratings = Review.get_drink_ratings(params[:id])
+        @rating = get_rating_avg(@ratings)
+        @id = params[:id]
+        render :single_drink_rating
+    end
+
+    def all_drink_ratings
+        drinks = Whiskey.all
+        @ratings = []
+        
+        drinks.each do |drink|
+            drink_ratings = Review.get_drink_ratings(drink.id)
+            avg = get_rating_avg(drink_ratings)
+            @ratings << {id: drink.id, rating: avg}
+        end
+
+        render :all_drink_ratings
+    end
+
     private
+
+    def get_rating_avg(ratings)
+        if ratings.length != 0
+            avg = ratings.sum / ratings.length
+            avg.round(2)
+        else
+            0
+        end
+    end
 
     def review_params
         params.require(:review).permit(:rating, :body, :location, :whiskey_id, :user_id)

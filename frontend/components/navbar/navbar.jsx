@@ -9,8 +9,7 @@ export default class Navbar extends React.Component {
                 <div className='navbar-items'>
                     <h1>UNBLENDED</h1>
                     <ul className='nav-list'>
-                        <li>The Pub</li>
-                        <li>Top Rated</li>
+                        <li><Link to='/thepub'>The Pub</Link></li>
                         <li><Link to='/drinks'>All Drinks</Link></li>
                     </ul>
                     <div className='profile-icon' >
