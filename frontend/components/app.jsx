@@ -9,7 +9,7 @@ import DrinksShowContainer from './drinks/drinks_show_container';
 import CreateDrinkContainer from './drinks/create_drink_container';
 import EditDrinkContainer from './drinks/edit_drink_container';
 import AllReviewsContainer from './reviews/all_reviews_container';
-
+import ReviewsShowContainer from './reviews/reviews_show_container';
 
 const App = () => (
     <>
@@ -21,6 +21,7 @@ const App = () => (
         <ProtectedRoute exact path='/drinks/:drinkId/edit' component={EditDrinkContainer} />
         <ProtectedRoute exact path='/drinks' component={DrinksIndexContainer} />
         <ProtectedRoute exact path='/drinks/:drinkId' component={DrinksShowContainer} />
+        <ProtectedRoute exact path='/reviews/:reviewId' component={ReviewsShowContainer} />
         <ProtectedRoute exact path='/thepub' component={AllReviewsContainer} />
         <Route render={() => <Redirect to='/drinks'/>} />
     </Switch>

@@ -202,7 +202,7 @@ export default class ReviewsIndexItem extends React.Component {
                 </div>
                 <div className='review-footer'>
                     {this.getTime()}
-                    <span id='detailed'>View Detailed Check-In</span>
+                    <Link to={`/reviews/${review.id}`} id='detailed'>View Detailed Check-In</Link>
                     {this.checkDelete()}
                 </div>
             </div>
