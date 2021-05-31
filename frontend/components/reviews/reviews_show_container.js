@@ -9,18 +9,21 @@ import ReviewsShow from './reviews_show';
 
 const mapStateToProps = (state, ownProps) => {
     const review = state.entities.reviews[ownProps.match.params.reviewId];
-    const drink = state.entities.whiskey[review.whiskey];
-    if(review && drink) {
-        return({
-            review,
-            drink,
-            distillery: state.entities.distilleries[drink.distillery],
-            user: state.entities.users[review.user]
-        });
-    } else if(review){
-        return ({
-            review
-        });
+    if(review) {
+        const drink = state.entities.whiskey[review.whiskey];
+        if (drink) {
+            return({
+                review,
+                drink,
+                distillery: state.entities.distilleries[drink.distillery],
+                user: state.entities.users[review.user]
+            });
+        }
+        else {
+            return ({
+                review
+            });
+        }
     } else {
         return {};
     }

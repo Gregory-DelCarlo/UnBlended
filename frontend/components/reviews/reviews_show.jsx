@@ -8,9 +8,11 @@ export default class ReviewsShow extends React.Component {
 
     componentDidMount() {
         this.props.getReview()
-            .then(review => {
+            .then(() => {
+                const {review} = this.props;
                 this.props.getDrink(review.whiskey)
-                    .then(drink => {
+                    .then(() => {
+                        const {drink} = this.props;
                         this.props.getDistillery(drink.distillery);
                     });
                 this.props.getUser(review.user);
