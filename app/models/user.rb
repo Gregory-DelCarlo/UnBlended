@@ -53,4 +53,9 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         class_name: :Review
 
+    has_many :friends,
+        primary_key: :id,
+        foreign_key: :main_user,
+        class_name: :Friend
+
 end
