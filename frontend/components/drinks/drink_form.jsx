@@ -27,9 +27,9 @@ export default class DrinkForm extends React.Component {
         this.props.submitDrink(this.state)
         .then( () => {
             if (this.props.formType === 'Create Drink') {
-                return this.props.history.push('/drinks/new');
+                return this.props.history.push('/drinks/');
             } else {
-                return this.props.history.push(`/drinks/${this.state.id}/edit`);
+                return this.props.history.push(`/drinks/${this.state.id}`);
             }
         });
     }
