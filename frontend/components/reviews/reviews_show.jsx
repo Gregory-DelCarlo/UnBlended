@@ -25,6 +25,7 @@ export default class ReviewsShow extends React.Component {
         if (drink && review && distillery && user) {
             return (
                 <div className='page'>
+                    <div className='reviews-bg' />
                     <Navbar />
                     <div className='reviews-show'>
                         <div className='full-review'>
