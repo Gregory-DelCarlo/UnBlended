@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_170934) do
+ActiveRecord::Schema.define(version: 2021_05_31_064729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,24 @@ ActiveRecord::Schema.define(version: 2021_05_05_170934) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "cheers", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "review_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id", "user_id"], name: "index_cheers_on_review_id_and_user_id", unique: true
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body", null: false
+    t.integer "review_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_comments_on_review_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "distilleries", force: :cascade do |t|
     t.string "name", null: false
     t.float "lat", null: false
@@ -47,6 +65,22 @@ ActiveRecord::Schema.define(version: 2021_05_05_170934) do
     t.string "city", null: false
     t.string "state", null: false
     t.index ["name"], name: "index_distilleries_on_name", unique: true
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.integer "main_user", null: false
+    t.integer "friended_user", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["main_user", "friended_user"], name: "index_friends_on_main_user_and_friended_user", unique: true
+  end
+
+  create_table "liked_whiskeys", force: :cascade do |t|
+    t.integer "drink_id", null: false
+    t.integer "list_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["drink_id", "list_id"], name: "index_liked_whiskeys_on_drink_id_and_list_id", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -71,6 +105,14 @@ ActiveRecord::Schema.define(version: 2021_05_05_170934) do
     t.index ["password_digest"], name: "index_users_on_password_digest"
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  create_table "whiskey_lists", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_whiskey_lists_on_user_id"
   end
 
   create_table "whiskeys", force: :cascade do |t|
