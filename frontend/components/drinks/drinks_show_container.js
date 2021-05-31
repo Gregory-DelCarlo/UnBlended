@@ -5,7 +5,6 @@ import { getSingleRating } from '../../actions/review_actions'
 import DrinksShow from './drinks_show';
 
 const mapStateToProps = (state, ownProps) => {
-    getDrink(ownProps.match.params.drinkId);
     const drink = state.entities.whiskey[ownProps.match.params.drinkId];
     if (drink) {
         return({
