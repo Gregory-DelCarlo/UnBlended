@@ -9,6 +9,8 @@ export default class ReviewsIndex extends React.Component {
             this.props.getReviews(this.props.type, this.props.id);
         } else if(this.props.type === 'All'){
             this.props.getReviews(this.props.type)
+        } else if(this.props.type === 'Friends') {
+            this.props.getReviews(this.props.type, this.props.id);
         }
         this.props.getUsers();
         this.createReviews = this.createReviews.bind(this);
@@ -34,7 +36,7 @@ export default class ReviewsIndex extends React.Component {
                     <div>Loading Reviews...</div>
                 )
             }
-        } else if (this.props.type === 'All') {
+        } else if (this.props.type === 'All' || this.props.type === 'Friends') {
             const {drinks, distilleries, reviews, users} = this.props;
             if (drinks && distilleries && reviews && users) {
                 return Object.values(reviews).reverse().map( review => {

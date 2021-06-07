@@ -8,7 +8,8 @@ const mapStateToProps = state => {
     if (Object.keys(whiskey).length !== 0 && Object.keys(distilleries).length !== 0) {
         return ({
             drinks: whiskey,
-            distilleries
+            distilleries,
+            currentUser: state.session.id
         })
     } else {
         return {};

@@ -7,9 +7,12 @@ class Review < ApplicationRecord
             Review.where(whiskey_id: id)
         elsif type == 'Friends'
             user = User.find(id)
-            friends = user.friends
+            friends = user.friends.map {|friend| friend.friended_user }
             Review.where(user_id: friends)
-        elsif type == 'Disitllery'
+        elsif type == 'Distillery'
+            drinksObj = Drink.where(distillery: id)
+            ids = drinksObj.map { |drink| drink.id }
+            Review.where(whiskey_id: ids)
         elsif type == 'All'
             Review.all()
         end
