@@ -6,7 +6,10 @@ class Review < ApplicationRecord
         if type == 'Drink'
             Review.where(whiskey_id: id)
         elsif type == 'Friends'
-            Review.where(user_id: id)
+            user = User.find(id)
+            friends = user.friends
+            Review.where(user_id: friends)
+        elsif type == 'Disitllery'
         elsif type == 'All'
             Review.all()
         end

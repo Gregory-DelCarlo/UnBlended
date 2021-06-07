@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-
 let preLoadedState = {}
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,6 +22,5 @@ document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(<Root store={store} />, root);
 
 
-    window.store = store;
-
+    // window.store = store;
 });

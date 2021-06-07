@@ -21,7 +21,7 @@ class Api::FriendsController < ApplicationController
         friend1 = Friend.find_by(main_user: params[:user1])
         friend2 = Friend.find_by(main_user: params[:user2])
 
-        if friend1.destroy && friend2.destroy
+        if friend1.destroy! && friend2.destroy!
             render json: ["success"]
         else
             render friend1.errors.full_messages
