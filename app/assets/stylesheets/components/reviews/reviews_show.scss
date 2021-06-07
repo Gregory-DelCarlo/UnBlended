@@ -56,6 +56,7 @@
                 .drink-head {
                     display: flex;
                     flex-direction: column;
+                    margin-left: 10px;
 
                     #name, #dist {
                         display: block;
@@ -104,6 +105,14 @@
                         margin: 5px 0px 0px 15px;
                     }
                 }
+            }
+        }
+        .review-footer {
+            #time {
+                display: inline-block;
+                margin: 5px 0px 5px 10px;
+                font-size: 14px;
+                color: #595959;
             }
         }
     }

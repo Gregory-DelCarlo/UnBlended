@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../navbar/navbar';
+import { getTime } from '../../util/review_utils';
 
 export default class ReviewsShow extends React.Component {
     constructor(props) {
@@ -21,8 +22,9 @@ export default class ReviewsShow extends React.Component {
 
     render() {
         const {drink, review, distillery, user} = this.props;
-
+        
         if (drink && review && distillery && user) {
+            const time = getTime(review);
             return (
                 <div className='page'>
                     <div className='reviews-bg' />
@@ -49,6 +51,9 @@ export default class ReviewsShow extends React.Component {
                                         <div id='location'>{review.location}</div>
                                     </div>
                                 </div>
+                            </div>
+                            <div className='review-footer'>
+                                <div id='time'>{time}</div>
                             </div>
                         </div>
                     </div>
