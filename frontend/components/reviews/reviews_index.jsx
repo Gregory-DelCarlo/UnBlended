@@ -14,6 +14,7 @@ export default class ReviewsIndex extends React.Component {
         }
         this.props.getUsers();
         this.createReviews = this.createReviews.bind(this);
+        this.checkTitle = this.checkTitle.bind(this);
     }
 
     createReviews() {
@@ -61,10 +62,18 @@ export default class ReviewsIndex extends React.Component {
         }
     }
 
+    checkTitle() {
+        if (this.props.type !== 'Friends') {
+            return (<h2>Global Recent Activity</h2>)
+        } else {
+            return(<h2>Recent Friend Activity</h2>)
+        }
+    }
+
     render() {
         return (
             <div className='drink-reviews' >
-                <h2>Global Recent Activity</h2>
+                {this.checkTitle()}
                 <div className='line'></div>
                 {this.createReviews()}
             </div>
