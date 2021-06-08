@@ -58,4 +58,13 @@ class User < ApplicationRecord
         foreign_key: :main_user,
         class_name: :Friend
 
+    has_many :cheers,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Cheer
+
+    has_many :comments,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Comment
 end
