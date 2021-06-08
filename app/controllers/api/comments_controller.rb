@@ -11,6 +11,8 @@ class Api::CommentsController < ApplicationController
 
     def index
         @comments = {}
+        # if testing in postman you need to add split to the end of the params
+        # postman can only send string params
         ids = params[:ids]
 
         ids.each do |id|
@@ -30,7 +32,7 @@ class Api::CommentsController < ApplicationController
     def update
         @comment = Comment.find(params[:id])
 
-        if @whiskey.update(comment_params)
+        if @comment.update(comment_params)
             render :show
         else
             render json: @comment.errors.full_messages, status: 422
@@ -43,7 +45,8 @@ class Api::CommentsController < ApplicationController
         if @comment.destroy
             render :show
         else
-            render: json: @comment.errors.full_messages, status: 422
+            render json: @comment.errors.full_messages, status: 422
+        end
     end
 
     private

@@ -16,6 +16,8 @@ class Api::CheersController < ApplicationController
 
     def index
         @cheers = {}
+        # if testing in postman you need to add split to the end of the params
+        # postman can only send string params
         ids = params[:ids]
 
         ids.each do |id|

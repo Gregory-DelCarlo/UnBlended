@@ -16,5 +16,7 @@ Rails.application.routes.draw do
     post '/toggle_cheers', :to => 'cheers#toggle_cheers'
     get '/all_cheers', :to => 'cheers#index'
     get '/cheers', :to => 'cheers#show'
+    get '/comments', :to => 'comments#index'
+    get '/comments/:reviewId', :to => 'comments#show'
   end
 end
