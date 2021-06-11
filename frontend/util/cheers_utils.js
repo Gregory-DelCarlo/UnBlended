@@ -1,7 +1,7 @@
 export const toggleCheers = (reviewId, userId) => (
     $.ajax({
         url: '/api/toggle_cheers',
-        method: 'post',
+        method: 'POST',
         data: {reviewId, userId}
     })
 );

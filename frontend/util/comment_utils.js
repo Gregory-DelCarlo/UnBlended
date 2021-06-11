@@ -21,7 +21,7 @@ export const createComments = comment => (
     })
 );
 
-export const updateReview = comment => (
+export const updateComment = comment => (
     $.ajax({
         url: `/api/comments/${comment.id}`,
         method: 'PUT',
