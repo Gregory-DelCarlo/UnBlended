@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import {getAllCheers, getCheers, addRemoveCheers} from './actions/cheers_actions';
+import {getAllComments, getComments, newComment, editComment, destroyComment} from './actions/comments_actions'; 
 
 let preLoadedState = {}
 
@@ -24,6 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     window.store = store;
+    window.getAllComments = getAllComments;
+    window.getComments = getComments;
+    window.newComment = newComment;
+    window.editComment = editComment;
+    window.destroyComment = destroyComment;
     window.addRemoveCheers = addRemoveCheers;
     window.getCheers = getCheers;
     window.getAllCheers = getAllCheers;

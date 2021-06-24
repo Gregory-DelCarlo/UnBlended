@@ -1,5 +1,5 @@
 import {
-    fetchAllComments, fetchComments, createComments,
+    fetchAllComments, fetchComments, createComment,
     updateComment, deleteComment
 } from '../util/comment_utils';
 
@@ -8,9 +8,9 @@ export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export const ADD_COMMENT = 'ADD_COMMENT';
 
-const receiveAllComments = comments => ({
+const receiveAllComments = allComments => ({
     type: RECEIVE_ALL_COMMENTS,
-    comments
+    allComments
 });
 
 const receiveComments = comments => ({
@@ -18,7 +18,7 @@ const receiveComments = comments => ({
     comments
 });
 
-const removeComments = comment => ({
+const removeComment = comment => ({
     type: REMOVE_COMMENT,
     comment
 });
@@ -28,4 +28,28 @@ const addComment = comment => ({
     comment
 });
 
-    
+
+export const getAllComments = ids => dispatch => (
+    fetchAllComments(ids)
+        .then(comments => dispatch(receiveAllComments(comments)))
+);
+
+export const getComments = reviewId => dispatch => (
+    fetchComments(reviewId)
+        .then(comments => dispatch(receiveComments(comments)))
+);
+
+export const newComment = comment => dispatch => (
+    createComment(comment)
+        .then(comment => dispatch(addComment(comment)))
+);
+
+export const editComment = comment => dispatch => (
+    updateComment(comment)
+        .then(comment => dispatch(addComment(comment)))
+);
+
+export const destroyComment = commentId => dispatch => (
+    deleteComment(commentId)
+        .then(comment => dispatch(removeComment(comment)))
+);

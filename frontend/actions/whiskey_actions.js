@@ -60,4 +60,4 @@ export const editDrink = drink => dispatch => (
 export const destroyDrink = drinkId => dispatch => (
     deleteDrink(drinkId) 
         .then(drink => dispatch(removeDrink(drink.id)))
-)
+);

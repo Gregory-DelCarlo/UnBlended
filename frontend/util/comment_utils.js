@@ -13,7 +13,7 @@ export const fetchComments = reviewId => (
     })
 );
 
-export const createComments = comment => (
+export const createComment = comment => (
     $.ajax({
         url: '/api/comments',
         method: 'POST',
