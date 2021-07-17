@@ -11,6 +11,7 @@
         box-shadow: 0 1px 1px rgba(43, 74, 94, 0.08), 0 1px 3px rgba(0, 22, 36, 16%);
         z-index: inherit;
         background: #fff;
+        margin: 0 auto 16px;
 
         .user-box {
             border-bottom: 1px solid #e6e6e6;
@@ -116,7 +117,44 @@
             }
         }
     }
+
+    .cheers-box {
+        width: 450px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        flex-flow: row nowrap;
+        margin: 0 auto 16px;
+        z-index: 5;
+        background: #fff;
+
+        button {
+            height: inherit;
+            width: 20%;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            background-color: #020202;
+            // border: 1px solid #545863;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #545863;
+            transition: color 1s;
+        }
+
+        .cheered {
+            background-color: #fc0;
+            transition: color 1s;
+        }
+
+        .no-cheers {
+            margin: 0 auto;
+        }
+    }
 }
+
 
 .reviews-bg {
     width: 100%;
