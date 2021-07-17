@@ -4,6 +4,7 @@ import { getDrink } from '../../actions/whiskey_actions';
 import { getUser } from '../../actions/user_actions';
 import { getReview, destroyReview } from '../../actions/review_actions';
 import ReviewsShow from './reviews_show';
+import { addRemoveCheers, getCheers } from '../../actions/cheers_actions';
 
 // we will need currentuser to check for friendships
 
@@ -16,7 +17,10 @@ const mapStateToProps = (state, ownProps) => {
                 review,
                 drink,
                 distillery: state.entities.distilleries[drink.distillery],
-                user: state.entities.users[review.user]
+                user: state.entities.users[review.user],
+                currentUser: state.session.id,
+                comments: state.entities.comments[review.id] ? state.entities.comments[review.id] : '',
+                cheers: state.entities.cheers[review.id] ? state.entities.cheers[review.id] : ''
             });
         }
         else {
@@ -34,7 +38,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     getReview: () => dispatch(getReview(ownProps.match.params.reviewId)),
     getUser: id => dispatch(getUser(id)),
     getDistillery: id => dispatch(getDistillery(id)),
-    deleteReview: () => dispatch(destroyReview(ownProps.match.params.reviewId))
+    deleteReview: () => dispatch(destroyReview(ownProps.match.params.reviewId)),
+    getCheers: id => dispatch(getCheers(id)),
+    toggleCheers: (reviewId, userId) => dispatch(addRemoveCheers(reviewId, userId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewsShow);
