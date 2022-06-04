@@ -98,6 +98,9 @@ export default class ReviewsShow extends React.Component {
                         >Toast</button>
                         {this.showCheers()}
                     </div>
+                    <div className='comments-box'>
+                        
+                    </div>
                 </div>
             </div>
         );
