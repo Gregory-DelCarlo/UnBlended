@@ -7,14 +7,15 @@ export default class Navbar extends React.Component {
         return (
             <div className="navbar-container">
                 <div className='navbar-items'>
-                    <h1><Link to='/'>UNBLENDED</Link></h1>
+                    <h1><Link to='/home'>UNBLENDED</Link></h1>
                     <ul className='nav-list'>
                         <li><Link to='/thepub'>The Pub</Link></li>
                         <li><Link to='/drinks'>All Drinks</Link></li>
+                        <li><Link to='/'>Home</Link></li>
                     </ul>
-                    <div className='profile-icon' >
-                        DD
-                    </div>
+                    {/* <div className='profile-icon' >
+                        
+                    </div> */}
                 </div>
             </div>
         )}
