@@ -23,7 +23,6 @@ const App = () => (
         <ProtectedRoute exact path='/drinks/:drinkId' component={DrinksShowContainer} />
         <ProtectedRoute exact path='/reviews/:reviewId' component={ReviewsShowContainer} />
         <ProtectedRoute exact path='/thepub' component={AllReviewsContainer} />
-        <ProtectedRoute exact path='/home' component={AllReviewsContainer} />
         <Route render={() => <Redirect to='/drinks'/>} />
     </Switch>
     </>
